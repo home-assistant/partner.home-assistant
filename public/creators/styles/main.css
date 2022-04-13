@@ -1,0 +1,35 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #3F3D56;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.section.alt {
+  background-color: #f6f6f6;
+}
+
+.hero-header {
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 72px;
+}
+
+.hero-sub-header {
+  font-size: 18px;
+  line-height: 26px;
+  color: #979797;
+}
+
+.btn-primary {
+  background-color: #03a9f4 !important;
+  border-color: #03a9f4 !important;
+}
+
+.faq-q {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+}
