@@ -38,6 +38,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 40px 0;
+  flex-wrap: wrap;
 }
 
 .members  .image-container {
