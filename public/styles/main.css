@@ -54,3 +54,11 @@ body {
 	width: 100%;
   border-radius: 50%;
 }
+
+/* WORKS WITH PROGRAM */
+
+.partner-images img {
+  padding: 8px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
