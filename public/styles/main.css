@@ -23,6 +23,13 @@ body {
   color: #979797;
 }
 
+@media screen and (max-width: 768px) {
+  .hero-header {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+
 .btn-primary {
   background-color: #03a9f4 !important;
   border-color: #03a9f4 !important;
