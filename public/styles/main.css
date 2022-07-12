@@ -23,6 +23,13 @@ body {
   color: #979797;
 }
 
+@media screen and (max-width: 768px) {
+  .hero-header {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+
 .btn-primary {
   background-color: #03a9f4 !important;
   border-color: #03a9f4 !important;
@@ -53,4 +60,16 @@ body {
 .members .image-container img {
 	width: 100%;
   border-radius: 50%;
+}
+
+/* WORKS WITH PROGRAM */
+
+.partner-images img {
+  padding: 8px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+nav a {
+  color: inherit !important;
 }
