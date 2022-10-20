@@ -23,12 +23,23 @@ body {
   color: #979797;
 }
 
-@media screen and (max-width: 768px) {
+.nav-link.active {
+  border-bottom: 2px solid #03a9f4;
+}
+
+@media screen and (max-width: 992px) {
   .hero-header {
     font-size: 42px;
     line-height: 50px;
   }
+
+  .nav-link.active {
+    border-left: 2px solid #03a9f4;
+    border-bottom: none;
+    padding-left: 4px !important;
+  }
 }
+
 
 .btn-primary {
   background-color: #03a9f4 !important;
@@ -48,7 +59,7 @@ body {
   flex-wrap: wrap;
 }
 
-.members  .image-container {
+.members .image-container {
   position: relative;
   border-radius: 50%;
   border: 4px solid #FFF;
@@ -58,7 +69,7 @@ body {
 
 
 .members .image-container img {
-	width: 100%;
+  width: 100%;
   border-radius: 50%;
 }
 
@@ -66,7 +77,8 @@ body {
 
 .partner-images img {
   padding: 8px;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
 
