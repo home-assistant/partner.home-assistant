@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+	<head>
+		{% include 'head.njk' %}
+	</head>
+	<body>
+		{% include "partials/header.md" %}
+		{{ content | safe }}
+		{% include "partials/footer.md" %}
+		{% include "scripts.njk" %}
+	</body>
+</html>
