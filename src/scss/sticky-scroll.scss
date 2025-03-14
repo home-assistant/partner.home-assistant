@@ -1,0 +1,8 @@
+.sticky-scroll {
+    height: 300vh;
+
+    &-inner {
+        position: sticky;
+        top: 0;
+    }
+}

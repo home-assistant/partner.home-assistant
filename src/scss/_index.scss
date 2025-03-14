@@ -3,15 +3,16 @@
 @use "variables";
 @use "typography";
 
-
 // Global Styles
 @use "base";
 @use "layout";
 @use "buttons";
 @use "header";
+@use "sticky-scroll";
 
 // Components
 @use "components/hero";
 @use "components/purpose";
 @use "components/logo-slider";
 @use "components/benefits";
+@use "components/cta-text";

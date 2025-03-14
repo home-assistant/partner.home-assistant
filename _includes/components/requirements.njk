@@ -1,24 +1,21 @@
-<section class="benefits">
+<section class="requirements">
   <div class="container">
-    <div class="benefits-card">
-      <div class="inner">
-        <h2>Benefits</h2>
-        <div class="cols">
-          <div class="col">
-            <p>
-              Joining the Works With Home Assistant program allows you to
-              showcase the official badge of compatibility, which is also
-              displayed on your integration page.
-            </p>
-            <img src="/img/wwha-badge-dark.svg" alt="WWHA Badge" />
+    <div class="inner">
+      <div class="sticky-scroll-">
+        <div class="sticky-scroll-inner-">
+          <h2>What is required?</h2>
+          <div class="content">
+            <span>Devices must be:</span>
           </div>
-          <div class="col">
-            <p>
-              Your devices will be promoted through Home Assistant’s official
-              channels. Most importantly, these devices will become the
-              preferred choice for over a million households using Home
-              Assistant.
-            </p>
+          <div class="cards">
+            {% for requirement in requirements %}
+            <div class="card">
+              <div class="title">{{ requirement.title }}</div>
+              <div class="description">
+                <p>{{ requirement.content }}</p>
+              </div>
+            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
