@@ -9,9 +9,15 @@ h4,
 h5,
 h6 {}
 
-h1 {}
+h1 {
+    font-size: var(--typography-h1-font-size);
+    font-weight: var(--typography-h1-font-weight);
+}
 
-h2 {}
+h2 {
+    font-size: var(--typography-h2-font-size);
+    font-weight: var(--typography-h2-font-weight);
+}
 
 h3 {}
 

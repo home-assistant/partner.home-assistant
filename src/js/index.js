@@ -1,19 +1,29 @@
-let logoCarousel = document.querySelector('.swiper');
-if (logoCarousel) {
-    new Swiper(logoCarousel, {
-        slidesPerView: auto,
-        loop: true,
-        autoplay: {
-            delay: 2000,
-        },
-        breakpoints: {
-            640: {
-                spaceBetween: 20,
+let logoCarousels = document.querySelectorAll('.logo-slider .swiper');
+if (logoCarousels) {
+    let r = true;
+    logoCarousels.forEach(logoCarousel => {
+        r = !r;
+        new Swiper(logoCarousel, {
+            slidesPerView: "auto",
+            speed: 2000,
+            loop: true,
+            centeredSlides: true,
+            edgeSwipeDetection: 'prevent',
+            autoplay: {
+                delay: 1000,
+                reverseDirection: r,
+                preventSwipeThreshold: 120,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
-            768: {
-                slidesPerView: 6,
-                spaceBetween: 30,
-            },
-        }
+            spaceBetween: 20,
+            breakpoints: {
+                640: {
+                },
+                768: {
+                    slidesPerView: 6.5
+                },
+            }
+        });
     });
 }

@@ -1,0 +1,41 @@
+<!-- split up array in to 2 halves -->
+{% set half = partners.partners | length / 2 | round %} {% set first_half =
+partners.partners.slice(0, half) %} {% set second_half =
+partners.partners.slice(half) %}
+
+<section class="logo-slider">
+  <div class="container">
+    <div class="logo-slider-top">
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {% for partner in first_half %}
+          <div class="swiper-slide">
+            <img
+              src="{{ partners.logo_path }}{{ partner.logo }}"
+              alt="{{ partner.name }}"
+            />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="logo-slider-bottom">
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {% for partner in second_half %}
+          <div class="swiper-slide">
+            <img
+              src="{{ partners.logo_path }}{{ partner.logo }}"
+              alt="{{ partner.name }}"
+            />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

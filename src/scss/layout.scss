@@ -2,4 +2,19 @@
     margin: 0 auto;
     max-width: var(--layout-container-max-width);
     width: 100%;
+
+    .inner {
+        margin: 0 auto;
+        max-width: calc(10/12 * 100%);
+        width: 100%;
+    }
+}
+
+.cols {
+    display: flex;
+    gap: var(--layout-columns-gap);
+
+    .col {
+        flex: 1;
+    }
 }
