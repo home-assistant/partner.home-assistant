@@ -1,0 +1,9 @@
+{
+    "mode": {
+        "symbol": {
+            "inline": true,
+            "sprite": "../_site/img/sprite.svg",
+            "bust": false
+        }
+    }
+}
