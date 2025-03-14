@@ -1,0 +1,41 @@
+{
+    "logo_path": "/img/partners/",
+    "partners": [
+        {
+            "name": "Aqara",
+            "logo": "aqara.png"
+        },
+        {
+            "name": "Apollo",
+            "logo": "apollo.png"
+        },
+        {
+            "name": "Heltun",
+            "logo": "heltun.png"
+        },
+        {
+            "name": "HomeSeer",
+            "logo": "homeseer.png"
+        },
+        {
+            "name": "HomeWizard",
+            "logo": "homewizard.png"
+        },
+        {
+            "name": "Jasco",
+            "logo": "jasco.png"
+        },
+        {
+            "name": "Leviton",
+            "logo": "leviton.png"
+        },
+        {
+            "name": "Third Reality",
+            "logo": "thirdreality.png"
+        },
+        {
+            "name": "Ultraloq",
+            "logo": "ultraloq.png"
+        }
+    ]
+}

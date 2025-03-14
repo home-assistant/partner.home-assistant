@@ -6,35 +6,23 @@ import pluginFilters from "./_config/filters.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
-	// Copy the contents of the `public` folder to the output folder
-	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy({
-			"./public/": "/"
+			"./public/": "/",
+			"src/img": "img",
+			"src/js": "js",
 		});
-
-	// JS
-	eleventyConfig.addPassthroughCopy("bundle.js");
-	// Pass /src/img to /img
-	eleventyConfig.addPassthroughCopy({ "src/img": "img" });
 
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
 	// Watch content images for the image pipeline.
 	//eleventyConfig.addWatchTarget("src/**/*.{svg,webp,png,jpeg}");
-	eleventyConfig.addWatchTarget("bundle.js");
 	eleventyConfig.addWatchTarget("src/scss/**/*.scss");
+	eleventyConfig.addWatchTarget("src/js/**/*.js");
 
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
 	// Adds the {% css %} paired shortcode
-	eleventyConfig.addBundle("css", {
-		toFileDirectory: "dist",
-	});
-	// Adds the {% js %} paired shortcode
-	eleventyConfig.addBundle("js", {
-		toFileDirectory: "dist",
-	});
 
 	// Plugins
 
@@ -51,6 +39,10 @@ export default async function (eleventyConfig) {
 		return collection.filter(item => item.data.sitemap !== false);
 	});
 
+	eleventyConfig.addFilter("stringify", function (value) {
+		return JSON.stringify(value);
+	});
+
 
 	// Features to make your build faster (when you need them)
 
@@ -59,10 +51,6 @@ export default async function (eleventyConfig) {
 	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
 
 	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-
-	eleventyConfig.addShortcode("svg", function (spriteName) {
-		return '<svg class="icon icon-' + spriteName + '"><use xlink:href="#' + spriteName + '"></use></svg>';
-	});``
 };
 
 export const config = {
