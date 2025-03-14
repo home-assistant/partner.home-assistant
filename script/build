@@ -4,4 +4,6 @@ set -e
 
 cd "$(dirname "$0")/.."
 
+mkdir -p dist
+
 npm run build
