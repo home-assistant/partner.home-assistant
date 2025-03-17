@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "step-1",
+        "title": "Step 1",
+        "description": "Choose the products you would like to certify"
+    },
+    {
+        "icon": "step-2",
+        "title": "Step 2",
+        "description": "Sign our WWHA agreement"
+    },
+    {
+        "icon": "step-3",
+        "title": "Step 3",
+        "description": "Pay the annual fee payment of 500 Swiss Francs"
+    },
+    {
+        "icon": "step-4",
+        "title": "Step 4",
+        "description": "Devices are tested by our expert team"
+    }
+]

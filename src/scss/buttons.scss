@@ -1,11 +1,37 @@
 .buttons {}
 
 .button {
-    background-color: var(--brand-color-home-assistant-blue);
+    background: var(--brand-color-home-assistant-blue);
     border-radius: 40px;
     color: #FFFFFF;
     font-weight: 500;
     text-decoration: none;
     padding: 10px 30px;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+
+    &.animated {
+        background: linear-gradient(259deg, #0C88C8 -14.63%, #57FFC1 104.2%);
+        background-size: 300% 300%;
+        animation: gradient 5s ease-in-out infinite;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }

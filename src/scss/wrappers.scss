@@ -1,0 +1,36 @@
+.wrapper {
+    position: relative;
+
+    &:before,
+    &:after {
+        --to: top;
+        content: "";
+        position: absolute;
+        height: 10%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to var(--to), rgba(255, 255, 255, 0) 0%, var(--body-background-color) 100%);
+        // gradient fff 0% to fff 100%
+        z-index: 1;
+    }
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        --to: bottom;
+        bottom: 0;
+    }
+
+    &-a {
+        background: url('/img/blue-gradient-bg.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    section {
+        position: relative;
+        z-index: 1;
+    }
+}

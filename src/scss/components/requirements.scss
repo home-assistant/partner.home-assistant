@@ -2,5 +2,48 @@ section.requirements {
     .cards {
         display: flex;
         flex-direction: column;
+        gap: 20px;
+
+        .card {
+            background: var(--card-background-color-white-gradient);
+            border: 1px solid #ffffff;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px;
+
+            &.active {
+                background: var(--card-background-color-light-blue-gradient);
+                color: #ffffff;
+
+                .description {
+                    color: #ffffff;
+                    font-weight: 300;
+                }
+            }
+
+            .title {
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .description {
+                font-size: 18px;
+                line-height: 1.2;
+                font-weight: 400;
+                color: #6E7B91;
+            }
+        }
     }
+
+    .requirements-row {
+        display: flex;
+
+        .content {
+            max-width: calc(12/5 * 100%);
+            width: 100%;
+        }
+    }
+
 }

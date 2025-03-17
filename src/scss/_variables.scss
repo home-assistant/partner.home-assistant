@@ -11,6 +11,10 @@
     --typography-h3-font-weight: 500;
     // Brand Colors
     --brand-color-home-assistant-blue: #18BCF2;
+    // Card Colors
+    --card-background-color-dark-blue-gradient: linear-gradient(118deg, #03161C 14.89%, #002332 83.09%);
+    --card-background-color-light-blue-gradient: linear-gradient(90deg, #0898C7 0%, #006BA8 100%);
+    --card-background-color-white-gradient: linear-gradient(94deg, rgba(255, 255, 255, 0.70) 0%, rgba(242, 244, 249, 0.70) 50%, rgba(249, 249, 252, 0.70) 100%);
 
     // Layout
     --layout-container-max-width: 1360px;

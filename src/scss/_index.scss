@@ -9,10 +9,13 @@
 @use "buttons";
 @use "header";
 @use "sticky-scroll";
+@use "wrappers";
 
 // Components
 @use "components/hero";
 @use "components/purpose";
 @use "components/logo-slider";
 @use "components/benefits";
+@use "components/requirements";
 @use "components/cta-text";
+@use "components/whats-involved";

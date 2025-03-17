@@ -1,0 +1,49 @@
+@use "../mixins";
+
+section.whats-involved {
+    background: url('/img/blue-gradient-alt-bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    overflow: hidden;
+
+    h2 {
+        text-align: center;
+    }
+
+    .steps {
+        display: flex;
+        gap: 20px;
+
+        .step {
+            flex-shrink: 0;
+            width: calc(5/12 * 100%);
+
+            @include mixins.bp(desktop) {
+                width: calc(3.75/12 * 100%);
+            }
+
+            .step-card {
+                background: linear-gradient(94deg, rgba(255, 255, 255, 0.20) 0%, rgba(242, 244, 249, 0.20) 50%, rgba(249, 249, 252, 0.20) 98.87%);
+                border: 1px solid #ffffff;
+                border-radius: 20px;
+                height: 100%;
+                padding: 40px;
+
+                &.active {
+                    background: var(--card-background-color-dark-blue-gradient);
+                }
+
+                .title {
+                    font-size: 32px;
+                    font-weight: 500;
+                }
+
+                .description {
+                    font-size: 18px;
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+}

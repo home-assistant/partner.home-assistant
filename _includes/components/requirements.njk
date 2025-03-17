@@ -4,18 +4,20 @@
       <div class="sticky-scroll-">
         <div class="sticky-scroll-inner-">
           <h2>What is required?</h2>
-          <div class="content">
-            <span>Devices must be:</span>
-          </div>
-          <div class="cards">
-            {% for requirement in requirements %}
-            <div class="card">
-              <div class="title">{{ requirement.title }}</div>
-              <div class="description">
-                <p>{{ requirement.content }}</p>
-              </div>
+          <div class="requirements-row">
+            <div class="content">
+              <span>Devices must be:</span>
             </div>
-            {% endfor %}
+            <div class="cards">
+              {% for requirement in requirements %}
+              <div class="card {% if loop.first %}active{% endif %}">
+                <div class="title">{{ requirement.title }}</div>
+                <div class="description">
+                  <p>{{ requirement.content }}</p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>

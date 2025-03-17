@@ -1,0 +1,17 @@
+<section class="whats-involved">
+  <div class="container">
+    <h2>What's involved?</h2>
+    <div class="steps">
+      {% for step in involved_steps %}
+      <div class="step">
+        <div class="indicator"></div>
+        <div class="step-card">
+          <div class="icon">{{ step.icon }}</div>
+          <div class="title">{{ step.title }}</div>
+          <div class="description">{{ step.description }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
