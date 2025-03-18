@@ -4,6 +4,7 @@
     background: var(--brand-color-home-assistant-blue);
     border-radius: 40px;
     color: #FFFFFF;
+    display: inline-flex;
     font-weight: 500;
     text-decoration: none;
     padding: 10px 30px;
@@ -19,6 +20,11 @@
         &:hover {
             animation-play-state: paused;
         }
+    }
+
+    &.large {
+        padding: 20px 40px;
+        font-size: 24px;
     }
 }
 

@@ -27,3 +27,16 @@ if (logoCarousels) {
         });
     });
 }
+
+let steps = document.querySelectorAll('.whats-involved .steps .step');
+let currentStep = 1;
+if (steps) {
+
+    setInterval(() => {
+        steps.forEach(step => {
+            step.classList.remove('active');
+        });
+        steps[currentStep].classList.add('active');
+        currentStep = currentStep === steps.length - 1 ? 0 : currentStep + 1;
+    }, 4000);
+}

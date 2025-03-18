@@ -1,14 +1,26 @@
+{% include "../../src/svg/slide-sprites.svg" %}
 <section class="whats-involved">
   <div class="container">
     <h2>What's involved?</h2>
     <div class="steps">
       {% for step in involved_steps %}
-      <div class="step">
-        <div class="indicator"></div>
+      <div class="step {% if loop.first %}active{% endif %}">
+        <div class="indicator">
+          <div></div>
+          <span></span>
+        </div>
         <div class="step-card">
-          <div class="icon">{{ step.icon }}</div>
-          <div class="title">{{ step.title }}</div>
-          <div class="description">{{ step.description }}</div>
+          <div class="step-card-inner">
+            <div class="icon">
+              <svg>
+                <use xlink:href="#{{ step.icon }}-upcoming" class="upcoming" />
+                <use xlink:href="#{{ step.icon }}-done" class="done" />
+                <use xlink:href="#{{ step.icon }}-current" class="current" />
+              </svg>
+            </div>
+            <div class="title">{{ step.title }}</div>
+            <div class="description">{{ step.description }}</div>
+          </div>
         </div>
       </div>
       {% endfor %}

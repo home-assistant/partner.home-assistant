@@ -1,10 +1,6 @@
 @use "../mixins";
 
 section.whats-involved {
-    background: url('/img/blue-gradient-alt-bg.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #ffffff;
     overflow: hidden;
 
     h2 {
@@ -23,15 +19,218 @@ section.whats-involved {
                 width: calc(3.75/12 * 100%);
             }
 
+            .indicator {
+                position: relative;
+                height: 36px;
+                display: flex;
+                align-items: center;
+
+                &:before {
+                    content: "";
+                    height: 2px;
+                    background: var(--card-background-color-light-blue-gradient);
+                    width: 100%;
+                    position: absolute;
+                    left: 36px;
+                    transition: width .5s ease-out;
+                }
+
+                &:after {
+                    content: "";
+                    height: 2px;
+                    background: repeating-linear-gradient(90deg,
+                            #0898C7, #0898C7 10px,
+                            transparent 10px, transparent 16px);
+                    width: 0%;
+                    margin-right: -20px;
+                    opacity: 0;
+                    transition: width .5s ease-out, opacity .25s;
+                }
+
+                div {
+                    height: 2px;
+                    position: absolute;
+                    left: 35px;
+                    right: -20px;
+                    background-color: #C1C4C8;
+                    z-index: -1;
+                    opacity: 1;
+                    transition: opacity .25s;
+                }
+
+                span {
+                    aspect-ratio: 1/1;
+                    height: 36px;
+                    border-radius: 50%;
+                    background: var(--card-background-color-light-blue-gradient);
+                    display: grid;
+                    place-items: center;
+                    position: relative;
+
+                    &:before {
+                        content: "";
+                        width: 12px;
+                        height: 12px;
+                        background-color: transparent;
+                        border: 10px solid transparent;
+                        border-radius: 50%;
+                        transition: border .25s, background-color .25s;
+                        transition-delay: 0s;
+                    }
+
+                    &:after {
+                        content: "";
+                        background-image: url("data:image/svg+xml,%3Csvg width='18' height='15' viewBox='0 0 18 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 14.1238L0 8.16633L2.1 6.08123L6 9.95357L15.9 0.123779L18 2.20889L6 14.1238Z' fill='white'/%3E%3C/svg%3E%0A");
+                        position: absolute;
+                        inset: 0;
+                        background-repeat: no-repeat;
+                        background-position: 50% 55%;
+                        opacity: 1;
+                        transition: opacity .25s;
+                    }
+                }
+            }
+
+            &.active {
+                +.step {
+                    .indicator {
+                        &:after {
+                            width: calc(100% - 16px);
+                            transition-delay: .5s;
+                        }
+                    }
+                }
+
+                +.step {
+
+                    &,
+                    +.step,
+                    +.step+.step,
+                    +.step+.step+.step {
+                        .indicator {
+                            &:before {
+                                width: 0%;
+                            }
+
+                            span {
+                                background: #C1C4C8;
+
+                                &:before {
+                                    background-color: var(--body-background-color);
+                                    border: 10px solid var(--body-background-color);
+                                }
+
+                                &:after {
+                                    opacity: 0;
+                                }
+                            }
+                        }
+
+                        .step-card {
+                            .icon {
+                                use.upcoming {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &,
+                +.step {
+                    .indicator {
+                        &:after {
+                            opacity: 1;
+                        }
+
+                        div {
+                            opacity: 0;
+                            transition-delay: .25s;
+                        }
+
+                        span {
+                            background: var(--card-background-color-light-blue-gradient);
+
+                            &:before {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+
+                .indicator {
+                    &:before {
+                        width: calc(100% - 16px);
+                    }
+
+                    span {
+                        &:before {
+                            border: 0px solid transparent;
+                            transition-delay: 0s;
+                        }
+
+                        &:after {
+                            opacity: 1;
+                            transition-delay: .25s;
+                        }
+                    }
+                }
+
+                .step-card {
+                    &:before {
+                        opacity: 1;
+                        transition-delay: .25s;
+                    }
+
+                    .icon {
+                        use.current {
+                            opacity: 1;
+                        }
+                    }
+
+                    color: #ffffff;
+                    transition-delay: .25s;
+                }
+            }
+
             .step-card {
                 background: linear-gradient(94deg, rgba(255, 255, 255, 0.20) 0%, rgba(242, 244, 249, 0.20) 50%, rgba(249, 249, 252, 0.20) 98.87%);
                 border: 1px solid #ffffff;
                 border-radius: 20px;
-                height: 100%;
                 padding: 40px;
+                transition: color .5s;
+                position: relative;
+                overflow: hidden;
+                height: 400px;
 
-                &.active {
-                    background: var(--card-background-color-dark-blue-gradient);
+                &:before {
+                    content: '';
+                    background: var(--card-background-color-light-blue-gradient);
+                    position: absolute;
+                    opacity: 0;
+                    inset: 0;
+                    transition: opacity .5s;
+                }
+
+                &-inner {
+                    z-index: 1;
+                    position: relative;
+                    display: flex;
+                    height: 100%;
+                    flex-direction: column;
+                }
+
+                .icon {
+                    flex-grow: 1;
+
+                    use {
+                        transition: opacity .5s;
+
+                        &.current,
+                        &.upcoming {
+                            opacity: 0;
+                        }
+                    }
                 }
 
                 .title {
@@ -41,7 +240,8 @@ section.whats-involved {
 
                 .description {
                     font-size: 18px;
-                    margin-top: 8px;
+                    margin-top: 12px;
+                    line-height: 1.3;
                 }
             }
         }

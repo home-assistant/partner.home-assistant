@@ -1,0 +1,18 @@
+section.contact-us {
+    background: url('/img/planet-bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+
+    .talk {
+        svg {
+            height: auto;
+            width: calc(100% + 20px);
+            margin-left: -10px;
+            margin-bottom: -1.5%;
+
+        }
+    }
+}

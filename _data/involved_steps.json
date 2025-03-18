@@ -1,11 +1,11 @@
 [
     {
-        "icon": "step-1",
+        "icon": "choose",
         "title": "Step 1",
         "description": "Choose the products you would like to certify"
     },
     {
-        "icon": "step-2",
+        "icon": "sign",
         "title": "Step 2",
         "description": "Sign our WWHA agreement"
     },

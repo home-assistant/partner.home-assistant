@@ -11,6 +11,7 @@ export default async function (eleventyConfig) {
 			"./public/": "/",
 			"src/img": "img",
 			"src/js": "js",
+			"src/svg": "svg",
 		});
 
 	// Run Eleventy when these files change:
@@ -20,6 +21,8 @@ export default async function (eleventyConfig) {
 	//eleventyConfig.addWatchTarget("src/**/*.{svg,webp,png,jpeg}");
 	eleventyConfig.addWatchTarget("src/scss/**/*.scss");
 	eleventyConfig.addWatchTarget("src/js/**/*.js");
+	eleventyConfig.addWatchTarget("src/svg/**/*");
+	eleventyConfig.addWatchTarget("src/img/**/*");
 
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
 	// Adds the {% css %} paired shortcode
