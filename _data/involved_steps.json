@@ -10,13 +10,23 @@
         "description": "Sign our WWHA agreement"
     },
     {
-        "icon": "step-3",
+        "icon": "fee",
         "title": "Step 3",
         "description": "Pay the annual fee payment of 500 Swiss Francs"
     },
     {
-        "icon": "step-4",
+        "icon": "tested",
         "title": "Step 4",
+        "description": "Devices are tested by our expert team"
+    },
+    {
+        "icon": "feedback",
+        "title": "Step 5",
+        "description": "Devices are tested by our expert team"
+    },
+    {
+        "icon": "approval",
+        "title": "Step 6",
         "description": "Devices are tested by our expert team"
     }
 ]

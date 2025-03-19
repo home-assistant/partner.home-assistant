@@ -9,53 +9,139 @@ section.whats-involved {
 
     .steps {
         display: flex;
+        --size: 1;
         gap: 20px;
+        flex-direction: column;
+
+        @include mixins.bp(desktop) {
+            --size: calc(4/12);
+            flex-direction: row;
+
+        }
+
+        @for $i from 1 through 5 {
+            &[data-step="#{$i}"] {
+                .step {
+                    @if $i >(5 - 2) {
+                        @include mixins.bp(desktop) {
+                            transform: translateX(calc((-100% - 20px) * (3)));
+                        }
+                    }
+
+                    @else {
+                        @include mixins.bp(desktop) {
+                            transform: translateX(calc((-100% - 20px) * ($i)));
+                        }
+                    }
+                }
+            }
+        }
 
         .step {
+            display: flex;
             flex-shrink: 0;
-            width: calc(5/12 * 100%);
+            width: calc(var(--size) * (100%));
 
             @include mixins.bp(desktop) {
-                width: calc(3.75/12 * 100%);
+                flex-direction: column;
+                width: calc(var(--size) * (100% - 40px));
+                transition: transform 1s ease .25s;
+            }
+
+
+
+            &:last-child {
+                .indicator {
+                    div {
+                        display: none;
+                    }
+
+                    &:before,
+                    &:after {
+                        content: unset;
+                    }
+                }
             }
 
             .indicator {
                 position: relative;
-                height: 36px;
-                display: flex;
+                width: 36px;
+                height: auto;
                 align-items: center;
+                margin-right: 16px;
+                flex-shrink: 0;
+
+                @include mixins.bp(desktop) {
+                    display: flex;
+                    width: auto;
+                    height: 36px;
+                    margin-right: -20px;
+                    margin-left: unset;
+                    margin-bottom: 40px;
+                }
 
                 &:before {
+                    --size: 100%;
                     content: "";
-                    height: 2px;
+                    height: var(--size);
                     background: var(--card-background-color-light-blue-gradient);
-                    width: 100%;
+                    width: 2px;
                     position: absolute;
-                    left: 36px;
+                    top: 36px;
+                    margin-left: 17px;
+
                     transition: width .5s ease-out;
+
+                    @include mixins.bp(desktop) {
+                        height: 2px;
+                        width: var(--size);
+                        margin-left: 0;
+                        left: 36px;
+                        top: unset;
+
+                    }
                 }
 
                 &:after {
+                    --size: 0%;
+                    --rotation: 0deg;
                     content: "";
-                    height: 2px;
-                    background: repeating-linear-gradient(90deg,
+                    display: flex;
+                    background: repeating-linear-gradient(var(--rotation),
                             #0898C7, #0898C7 10px,
                             transparent 10px, transparent 16px);
-                    width: 0%;
-                    margin-right: -20px;
+                    height: var(--size);
+                    width: 2px;
+                    margin-left: 17px;
                     opacity: 0;
                     transition: width .5s ease-out, opacity .25s;
+
+                    @include mixins.bp(desktop) {
+                        --rotation: 90deg;
+                        height: 2px;
+                        margin-left: 0;
+                        width: var(--size);
+                    }
+
                 }
 
                 div {
-                    height: 2px;
+                    width: 2px;
+                    height: 100%;
                     position: absolute;
-                    left: 35px;
-                    right: -20px;
+                    left: 17px;
+                    bottom: -20px;
                     background-color: #C1C4C8;
                     z-index: -1;
                     opacity: 1;
                     transition: opacity .25s;
+
+                    @include mixins.bp(desktop) {
+                        height: 2px;
+                        width: 100%;
+                        left: 36px;
+                        bottom: unset;
+                    }
                 }
 
                 span {
@@ -95,7 +181,7 @@ section.whats-involved {
                 +.step {
                     .indicator {
                         &:after {
-                            width: calc(100% - 16px);
+                            --size: calc(100% - 16px);
                             transition-delay: .5s;
                         }
                     }
@@ -106,7 +192,9 @@ section.whats-involved {
                     &,
                     +.step,
                     +.step+.step,
-                    +.step+.step+.step {
+                    +.step+.step+.step,
+                    +.step+.step+.step+.step,
+                    +.step+.step+.step+.step+.step {
                         .indicator {
                             &:before {
                                 width: 0%;
@@ -127,9 +215,17 @@ section.whats-involved {
                         }
 
                         .step-card {
+                            background: var(--body-background-color);
+                            border-color: #C1C4C8;
+
                             .icon {
                                 use.upcoming {
                                     opacity: 1;
+                                }
+
+                                use.current,
+                                use.done {
+                                    opacity: 0;
                                 }
                             }
                         }
@@ -160,7 +256,7 @@ section.whats-involved {
 
                 .indicator {
                     &:before {
-                        width: calc(100% - 16px);
+                        --size: calc(100% - 16px);
                     }
 
                     span {
@@ -183,25 +279,38 @@ section.whats-involved {
                     }
 
                     .icon {
+                        use {
+                            transition-delay: .25s;
+                        }
+
+                        use.done {
+                            opacity: 0;
+                        }
+
                         use.current {
                             opacity: 1;
                         }
                     }
 
                     color: #ffffff;
-                    transition-delay: .25s;
                 }
             }
 
             .step-card {
-                background: linear-gradient(94deg, rgba(255, 255, 255, 0.20) 0%, rgba(242, 244, 249, 0.20) 50%, rgba(249, 249, 252, 0.20) 98.87%);
+                background: linear-gradient(94deg, #FFF 0%, #F2F4F9 50%, #F9F9FC 98.87%);
                 border: 1px solid #ffffff;
-                border-radius: 20px;
-                padding: 40px;
-                transition: color .5s;
+                border-radius: 10px;
+                padding: 20px;
                 position: relative;
                 overflow: hidden;
-                height: 400px;
+                flex-grow: 1;
+                transition: background-color .5s, border-color .5s, color .5s;
+
+                @include mixins.bp(desktop) {
+                    border-radius: 20px;
+                    height: 400px;
+                    padding: 40px;
+                }
 
                 &:before {
                     content: '';
@@ -222,6 +331,12 @@ section.whats-involved {
 
                 .icon {
                     flex-grow: 1;
+                    margin-bottom: 32px;
+
+                    svg {
+                        height: 60px;
+                        width: 60px;
+                    }
 
                     use {
                         transition: opacity .5s;
@@ -234,14 +349,23 @@ section.whats-involved {
                 }
 
                 .title {
-                    font-size: 32px;
+                    font-size: 20px;
                     font-weight: 500;
+
+                    @include mixins.bp(desktop) {
+                        font-size: 32px;
+                    }
                 }
 
                 .description {
-                    font-size: 18px;
-                    margin-top: 12px;
+                    font-size: 12px;
+                    margin-top: 8px;
                     line-height: 1.3;
+
+                    @include mixins.bp(desktop) {
+                        font-size: 18px;
+                        margin-top: 12px;
+                    }
                 }
             }
         }

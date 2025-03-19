@@ -4,7 +4,7 @@ if (logoCarousels) {
     logoCarousels.forEach(logoCarousel => {
         r = !r;
         new Swiper(logoCarousel, {
-            slidesPerView: "auto",
+            slidesPerView: 3.5,
             speed: 2000,
             loop: true,
             centeredSlides: true,
@@ -18,8 +18,6 @@ if (logoCarousels) {
             },
             spaceBetween: 20,
             breakpoints: {
-                640: {
-                },
                 768: {
                     slidesPerView: 6.5
                 },
@@ -28,7 +26,8 @@ if (logoCarousels) {
     });
 }
 
-let steps = document.querySelectorAll('.whats-involved .steps .step');
+let stepsWrapper = document.querySelector('.whats-involved .steps');
+let steps = stepsWrapper.querySelectorAll('.step');
 let currentStep = 1;
 if (steps) {
 
@@ -37,6 +36,7 @@ if (steps) {
             step.classList.remove('active');
         });
         steps[currentStep].classList.add('active');
+        stepsWrapper.setAttribute('data-step', currentStep);
         currentStep = currentStep === steps.length - 1 ? 0 : currentStep + 1;
     }, 4000);
 }
