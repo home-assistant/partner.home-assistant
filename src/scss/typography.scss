@@ -29,3 +29,9 @@ h4 {}
 h5 {}
 
 h6 {}
+
+p {
+    font-size: var(--typography-paragraph-font-size);
+    font-weight: var(--typography-paragraph-font-weight);
+    line-height: var(--typography-paragraph-line-height);
+}

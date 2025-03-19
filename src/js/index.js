@@ -4,22 +4,23 @@ if (logoCarousels) {
     logoCarousels.forEach(logoCarousel => {
         r = !r;
         new Swiper(logoCarousel, {
-            slidesPerView: 3.5,
-            speed: 2000,
+            slidesPerView: 2.5,
+            speed: 1500,
             loop: true,
             centeredSlides: true,
             edgeSwipeDetection: 'prevent',
             autoplay: {
-                delay: 1000,
+                delay: 750,
                 reverseDirection: r,
                 preventSwipeThreshold: 120,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
             },
-            spaceBetween: 20,
+            spaceBetween: 10,
             breakpoints: {
                 768: {
-                    slidesPerView: 6.5
+                    slidesPerView: 6.5,
+                    spaceBetween: 20
                 },
             }
         });
@@ -30,7 +31,6 @@ let stepsWrapper = document.querySelector('.whats-involved .steps');
 let steps = stepsWrapper.querySelectorAll('.step');
 let currentStep = 1;
 if (steps) {
-
     setInterval(() => {
         steps.forEach(step => {
             step.classList.remove('active');

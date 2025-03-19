@@ -1,4 +1,12 @@
+@use '../mixins';
+
 section.logo-slider {
+    padding: 75px 0;
+
+    @include mixins.bp(desktop) {
+        padding: 150px 0;
+    }
+
     .swiper {
 
         &:before,

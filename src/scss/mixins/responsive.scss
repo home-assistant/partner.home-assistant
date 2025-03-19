@@ -23,7 +23,10 @@
         }
     }
 
+    // else if the breakpoint is a pixel value, use it as is
     @else {
-        @warn "Invalid breakpoint: #{$breakpoint}.";
+        @media (min-width: $breakpoint) {
+            @content;
+        }
     }
 }

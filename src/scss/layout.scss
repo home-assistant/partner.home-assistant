@@ -4,11 +4,7 @@
     margin: 0 auto;
     max-width: var(--layout-container-max-width);
     width: 100%;
-    padding: 0 20px;
-
-    @include mixins.bp(desktop) {
-        padding: 0 40px;
-    }
+    padding: 0 var(--layout-container-padding);
 
     .inner {
         margin: 0 auto;
@@ -19,6 +15,7 @@
 
 .cols {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--layout-columns-gap);
 
     .col {
