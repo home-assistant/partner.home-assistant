@@ -1,3 +1,5 @@
+@use '../mixins';
+
 section.contact-us {
     background: url('/img/planet-bg.webp');
     background-repeat: no-repeat;
@@ -6,7 +8,29 @@ section.contact-us {
     color: #ffffff;
     text-align: center;
 
+    padding: 60px 0 0;
+
+    @include mixins.bp(desktop) {
+        padding: 150px 0 0;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        text-align: center;
+
+        @include mixins.bp(desktop) {
+            margin-bottom: 60px;
+        }
+
+    }
+
     .talk {
+        margin-top: 60px;
+
+        @include mixins.bp(desktop) {
+            margin-top: 150px;
+        }
+
         svg {
             height: auto;
             width: calc(100% + 20px);

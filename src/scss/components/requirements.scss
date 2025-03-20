@@ -1,17 +1,56 @@
+@use "../mixins";
+
 section.requirements {
+    margin: 60px 0;
+
+    @include mixins.bp(desktop) {
+        margin: 150px 0;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        text-align: center;
+
+        @include mixins.bp(desktop) {
+            margin-bottom: 60px;
+        }
+
+    }
+
     .cards {
         display: flex;
         flex-direction: column;
         gap: 20px;
 
+        @include mixins.bp(desktop) {
+            display: grid;
+            grid-template-areas:
+                "c1 c1 c2 c2 c3 c3"
+                "c4 c4 c4 c5 c5 c5"
+                "c6 c6 c6 c5 c5 c5";
+        }
+
         .card {
             background: var(--card-background-color-white-gradient);
             border: 1px solid #ffffff;
-            border-radius: 20px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            padding: 40px;
+            gap: 10px;
+            padding: 20px;
+
+            @include mixins.bp(desktop) {
+                border-radius: 20px;
+                gap: 20px;
+                padding: 40px;
+            }
+
+            @for $i from 1 through 7 {
+                &:nth-child(#{$i}) {
+                    grid-area: c#{$i};
+                }
+
+            }
 
             &.active {
                 background: var(--card-background-color-light-blue-gradient);
@@ -24,6 +63,7 @@ section.requirements {
             }
 
             .title {
+                line-height: var(--typography-h2-line-height);
                 font-size: 24px;
                 font-weight: 600;
             }
@@ -33,6 +73,22 @@ section.requirements {
                 line-height: 1.2;
                 font-weight: 400;
                 color: #6E7B91;
+            }
+
+            .items {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .item {
+                    @include mixins.bp(desktop) {
+                        padding: 10px 20px;
+                    }
+                }
+
+                .title {
+                    margin-bottom: 8px;
+                }
             }
         }
     }

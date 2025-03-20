@@ -4,24 +4,6 @@ section.hero {
     align-items: center;
     text-align: center;
 
-    h1 {
-        font-size: 44px;
-        font-weight: 700;
-        text-wrap: balance;
-
-        @include mixins.bp(large-mobile) {
-            font-size: 64px;
-        }
-
-        @include mixins.bp(tablet) {
-            font-size: 96px;
-        }
-
-        @include mixins.bp(desktop) {
-            font-size: 128px;
-        }
-    }
-
     .subtitle {
         align-items: center;
         color: var(--brand-color-home-assistant-blue);

@@ -1,25 +1,29 @@
 <section class="requirements">
   <div class="container">
     <div class="inner">
-      <div class="sticky-scroll-">
-        <div class="sticky-scroll-inner-">
-          <h2>What is required?</h2>
-          <div class="requirements-row">
-            <div class="content">
-              <span>Devices must be:</span>
-            </div>
-            <div class="cards">
-              {% for requirement in requirements %}
-              <div class="card {% if loop.first %}active{% endif %}">
-                <div class="title">{{ requirement.title }}</div>
-                <div class="description">
-                  <p>{{ requirement.content }}</p>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
+      <h2>What is required?</h2>
+      <div class="cards">
+        {% for requirement in requirements %}
+        <div class="card {% if loop.first %}active{% endif %}">
+          {% if requirement.title and requirement.content %}
+          <div class="title">{{ requirement.title }}</div>
+          <div class="description">
+            <p>{{ requirement.content }}</p>
           </div>
+          {% elif requirement.items %}
+          <div class="items">
+            {% for item in requirement.items %}
+            <div class="item">
+              <div class="title">{{ item.title }}</div>
+              <div class="description">
+                <p>{{ item.content }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>

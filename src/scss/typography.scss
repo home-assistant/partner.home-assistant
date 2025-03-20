@@ -7,28 +7,46 @@ h2,
 h3,
 h4,
 h5,
-h6 {}
+h6 {
+    text-wrap: balance;
+    transition: font-size .15s ease-out;
+}
 
 h1 {
     font-size: var(--typography-h1-font-size);
     font-weight: var(--typography-h1-font-weight);
+    line-height: var(--typography-h1-line-height);
 }
 
 h2 {
     font-size: var(--typography-h2-font-size);
     font-weight: var(--typography-h2-font-weight);
+    line-height: var(--typography-h2-line-height);
 }
 
 h3 {
     font-size: var(--typography-h3-font-size);
     font-weight: var(--typography-h3-font-weight);
+    line-height: var(--typography-h3-line-height);
 }
 
-h4 {}
+h4 {
+    font-size: var(--typography-h4-font-size);
+    font-weight: var(--typography-h4-font-weight);
+    line-height: var(--typography-h4-line-height);
+}
 
-h5 {}
+h5 {
+    font-size: var(--typography-h5-font-size);
+    font-weight: var(--typography-h5-font-weight);
+    line-height: var(--typography-h5-line-height);
+}
 
-h6 {}
+h6 {
+    font-size: var(--typography-h6-font-size);
+    font-weight: var(--typography-h6-font-weight);
+    line-height: var(--typography-h6-line-height);
+}
 
 p {
     font-size: var(--typography-paragraph-font-size);

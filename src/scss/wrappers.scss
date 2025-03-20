@@ -10,8 +10,7 @@
         left: 0;
         right: 0;
         background: linear-gradient(to var(--to), rgba(255, 255, 255, 0) 0%, var(--body-background-color) 100%);
-        // gradient fff 0% to fff 100%
-        z-index: 1;
+
     }
 
     &:before {

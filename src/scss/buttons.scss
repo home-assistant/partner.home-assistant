@@ -1,3 +1,5 @@
+@use 'mixins';
+
 .buttons {}
 
 .button {
@@ -7,7 +9,7 @@
     display: inline-flex;
     font-weight: 500;
     text-decoration: none;
-    padding: 10px 30px;
+    padding: 12px 30px;
     white-space: nowrap;
     position: relative;
     overflow: hidden;
@@ -23,8 +25,10 @@
     }
 
     &.large {
-        padding: 20px 40px;
-        font-size: 24px;
+        @include mixins.bp(desktop) {
+            padding: 16px 40px;
+            font-size: 24px;
+        }
     }
 }
 

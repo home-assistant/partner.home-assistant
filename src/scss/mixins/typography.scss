@@ -1,0 +1,6 @@
+@mixin heading($tag) {
+    font-family: var(--typography-base-font);
+    font-weight: var(--typography-#{$tag}-font-weight);
+    line-height: var(--typography-#{$tag}-line-height);
+    font-size: var(--typography-#{$tag}-font-size);
+}

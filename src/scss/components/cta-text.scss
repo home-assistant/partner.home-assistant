@@ -1,9 +1,19 @@
+@use "../mixins";
+
 section.cta-text {
-    padding: 100px 0;
-    font-size: 48px;
-    line-height: 1.15;
+    @include mixins.heading(h3);
+
+    margin: 60px 0;
+
+    @include mixins.bp(desktop) {
+        margin: 150px 0;
+    }
+
     text-align: center;
-    text-wrap: balance;
+
+    @include mixins.bp(desktop) {
+        text-wrap: balance;
+    }
 
     span {
         font-weight: 700;
