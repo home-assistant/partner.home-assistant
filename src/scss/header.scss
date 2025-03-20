@@ -1,14 +1,138 @@
+@use 'mixins';
+
 .header {
-    padding: 40px;
+    padding: 20px 0;
     width: 100%;
+    isolation: isolate;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--body-background-color);
+
+    @include mixins.bp(desktop) {
+        padding: 40px 0;
+    }
 
     .container {
         align-items: center;
         display: flex;
         justify-content: space-between;
+        min-height: 30px;
+        z-index: 1;
+
+        >.cta,
+        >.nav {
+            display: none;
+
+            @include mixins.bp(desktop) {
+                display: flex;
+            }
+        }
+    }
+
+    .mobile-menu {
+        display: flex;
+        pointer-events: none;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transition: opacity 0.25s;
+        z-index: -1;
+        padding-bottom: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        &:before {
+            background-color: var(--body-background-color);
+            content: '';
+            position: absolute;
+            top: -70px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        &:after {
+            background-color: var(--body-background-color);
+            content: '';
+            position: absolute;
+        }
+
+
+        .nav {
+            flex-direction: column;
+            padding: 20px 0;
+            gap: 10px;
+        }
     }
 
     .logo {
         height: 30px;
+    }
+
+
+    .nav {
+        align-items: center;
+        display: flex;
+        gap: 40px;
+
+        &-item {
+            text-decoration: none;
+            color: inherit;
+            padding: 10px 10px;
+            position: relative;
+
+            &:after {
+                content: '';
+                left: 10px;
+                width: 0%;
+                height: 1px;
+                background-color: var(--body-color);
+                position: absolute;
+                top: calc(100% - 8px);
+                transition: width 0.25s;
+            }
+
+            &:hover {
+                &:after {
+                    width: calc(100% - 20px);
+                }
+            }
+        }
+    }
+
+    &.open {
+        .mobile-menu {
+            pointer-events: all;
+            opacity: 1;
+
+            &,
+            .nav,
+            .cta {
+                display: flex;
+            }
+        }
+    }
+
+    .burger {
+        justify-self: flex-end;
+    }
+
+    @include mixins.bp(desktop) {
+        .burger {
+            display: none;
+        }
+
+        .cta {
+            display: block;
+        }
+
+        .nav {
+            display: flex;
+        }
     }
 }

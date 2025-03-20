@@ -8,7 +8,7 @@ section.benefits {
         margin: 150px 0;
     }
 
-    .container {
+    >.container {
         padding: 0;
 
         @include mixins.bp(desktop) {

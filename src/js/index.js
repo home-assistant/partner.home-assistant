@@ -40,3 +40,38 @@ if (steps) {
         currentStep = currentStep === steps.length - 1 ? 0 : currentStep + 1;
     }, 4000);
 }
+
+let header = document.querySelector('.header');
+let burger = header.querySelector('.burger');
+if (burger) {
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        header.classList.toggle('open');
+    });
+}
+
+let navItems = header.querySelectorAll('.nav-item');
+if (navItems) {
+    navItems.forEach(navItem => {
+        navItem.addEventListener('click', () => {
+            header.classList.remove('open');
+            burger.classList.remove('active');
+        });
+    });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        if (href === "#") {
+            return;
+        }
+        const target = document.querySelector(href);
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+            });
+        }
+    });
+});

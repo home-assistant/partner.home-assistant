@@ -1,4 +1,4 @@
-<section class="whats-involved">
+<section class="whats-involved" id="whats-involved">
   <div class="container">
     <h2>What's involved?</h2>
     <div class="steps" data-step="0">
@@ -17,7 +17,9 @@
                 <use xlink:href="#{{ step.icon }}-current" class="current" />
               </svg>
             </div>
-            <div class="title">{{ step.title }}</div>
+            <div class="title">
+              {{ step.title }} <span> of {{ involved_steps.length }}</span>
+            </div>
             <div class="description">{{ step.description }}</div>
           </div>
         </div>

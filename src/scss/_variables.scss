@@ -1,8 +1,13 @@
 @use 'mixins';
 
 :root {
+    // Colors
+    --color-primary: #002332;
+    --color-secondary: #4F606E;
+
     // Body
     --body-background-color: #F5F6FA;
+    --body-color: var(--color-primary);
 
     // Typography
     --typography-base-font: "Figtree", serif;

@@ -303,7 +303,14 @@ section.whats-involved {
                         }
                     }
 
-                    color: #ffffff;
+                    &,
+                    .description {
+                        color: #ffffff;
+                    }
+
+                    .title span {
+                        opacity: .75;
+                    }
                 }
             }
 
@@ -342,11 +349,20 @@ section.whats-involved {
 
                 .icon {
                     flex-grow: 1;
-                    margin-bottom: 32px;
+                    margin-bottom: 16px;
+
+                    @include mixins.bp(desktop) {
+                        margin-bottom: 32px;
+                    }
 
                     svg {
-                        height: 60px;
-                        width: 60px;
+                        height: 40px;
+                        width: 40px;
+
+                        @include mixins.bp(desktop) {
+                            height: 60px;
+                            width: 60px;
+                        }
                     }
 
                     use {
@@ -366,18 +382,31 @@ section.whats-involved {
                     @include mixins.bp(desktop) {
                         font-size: 32px;
                     }
+
+                    span {
+                        font-weight: 400;
+                        font-size: 10px;
+                        opacity: .5;
+
+                        @include mixins.bp(desktop) {
+                            font-size: 14px;
+                        }
+
+                    }
                 }
 
                 .description {
                     font-size: 12px;
                     margin-top: 8px;
                     line-height: 1.3;
+                    color: var(--color-secondary);
 
                     @include mixins.bp(desktop) {
                         font-size: 18px;
                         margin-top: 12px;
                     }
                 }
+
             }
         }
     }

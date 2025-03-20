@@ -1,4 +1,4 @@
-<svg width="0" height="0" class="hidden">
+<svg width="0" height="0" style="position: absolute;">
   <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" id="approval-done">
     <g clip-path="url(#clip0_412_2707)">
       <path d="M29.9997 25.9391C33.5904 25.9391 36.5013 23.0079 36.5013 19.392C36.5013 15.7762 33.5904 12.845 29.9997 12.845C26.4089 12.845 23.498 15.7762 23.498 19.392C23.498 23.0079 26.4089 25.9391 29.9997 25.9391Z" fill="url(#paint0_linear_412_2707)" stroke="url(#paint1_linear_412_2707)" stroke-miterlimit="10" stroke-linecap="round"></path>
@@ -26,7 +26,7 @@
         <stop offset="1" stop-color="#006BA8"></stop>
       </linearGradient>
       <linearGradient id="paint4_linear_412_2707" x1="25.3867" y1="44.6051" x2="43.4457" y2="44.6051" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#0898C7"></stop>
+        <stop stop-color="#0898C7"></sto
         <stop offset="1" stop-color="#006BA8"></stop>
       </linearGradient>
       <linearGradient id="paint5_linear_412_2707" x1="25.3867" y1="40.9799" x2="32.1736" y2="40.9799" gradientUnits="userSpaceOnUse">
