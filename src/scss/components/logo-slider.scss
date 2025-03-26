@@ -1,10 +1,14 @@
 @use '../mixins';
 
 section.logo-slider {
-    margin: 75px 0;
+    margin: 60px 0;
 
     @include mixins.bp(desktop) {
         margin: 150px 0;
+    }
+
+    .container {
+        padding: 0;
     }
 
     .swiper {
@@ -45,6 +49,7 @@ section.logo-slider {
         aspect-ratio: 1/1;
         display: flex;
         align-items: center;
+        user-select: none;
         justify-content: center;
         padding: 1rem;
 

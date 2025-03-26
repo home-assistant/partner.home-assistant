@@ -1,10 +1,56 @@
+@use "../mixins";
+
 section.purpose {
+    z-index: unset;
+    margin: 60px 0;
+
+    @include mixins.bp(desktop) {
+        margin: 200px 0 200px 0;
+    }
+
     .container {
         display: flex;
+    }
+
+    .inner {
+        display: flex;
+        flex-wrap: wrap;
+
+        div {
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
     }
 
     .purpose-content {
         max-width: 440px;
         width: 100%;
+        font-size: 20px;
+
+        p {
+            color: #6E7B91;
+            font-weight: 400;
+        }
+    }
+
+    .purpose-graphic {
+        aspect-ratio: 1/1;
+        width: 100%;
+        position: relative;
+        z-index: -1;
+        order: -1;
+
+        @include mixins.bp(tablet) {
+            order: 1;
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            width: 230%;
+        }
     }
 }

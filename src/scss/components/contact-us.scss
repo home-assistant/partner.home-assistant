@@ -7,6 +7,7 @@ section.contact-us {
     background-position: center;
     color: #ffffff;
     text-align: center;
+    overflow: hidden;
 
     padding: 60px 0 0;
 
@@ -15,8 +16,12 @@ section.contact-us {
     }
 
     h2 {
-        margin-bottom: 30px;
         text-align: center;
+    }
+
+    h2,
+    p {
+        margin-bottom: 30px;
 
         @include mixins.bp(desktop) {
             margin-bottom: 60px;

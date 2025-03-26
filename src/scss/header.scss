@@ -8,8 +8,13 @@
     top: 0;
     z-index: 100;
     background-color: var(--body-background-color);
+    transition: padding 0.25s;
 
-    @include mixins.bp(desktop) {
+    @include mixins.bp(tablet) {
+        padding: 30px 0;
+    }
+
+    @include mixins.bp(large-desktop) {
         padding: 40px 0;
     }
 

@@ -1,5 +1,8 @@
+@use "mixins";
+
 .wrapper {
     position: relative;
+    overflow: hidden;
 
     &:before,
     &:after {
@@ -28,8 +31,30 @@
         background-size: cover;
     }
 
+    &-b {
+        background: url('/img/mesh.webp');
+        background-repeat: no-repeat;
+        background-position: 5% 50%;
+
+        @include mixins.bp(desktop) {
+            background-size: cover;
+            background-position: center;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+
     section {
         position: relative;
         z-index: 1;
+    }
+}
+
+section+.wrapper {
+    section {
+        margin-top: 0;
     }
 }

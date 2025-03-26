@@ -2,9 +2,12 @@
 layout: base.njk
 ---
 
-{% include 'components/hero.njk' %} {% include 'components/purpose.njk' %} {%
-include 'components/logo-slider.njk' %} {% include 'components/benefits.njk' %}
-{% include 'components/whats-involved.njk' %}
+<div class="wrapper wrapper-b">
+  {% include 'components/hero.njk' %} {% include 'components/purpose.njk' %} {%
+  include 'components/logo-slider.njk' %}
+</div>
+{% include 'components/benefits.njk' %} {% include
+'components/whats-involved.njk' %}
 
 <div class="wrapper wrapper-a">
   {% include 'components/requirements.njk' %} {% include

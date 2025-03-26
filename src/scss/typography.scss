@@ -53,3 +53,11 @@ p {
     font-weight: var(--typography-paragraph-font-weight);
     line-height: var(--typography-paragraph-line-height);
 }
+
+p:not(:last-child) {
+    margin-bottom: 1.25rem;
+}
+
+strong {
+    font-weight: 800
+}
