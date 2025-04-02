@@ -4,7 +4,7 @@
       <h2>What's required?</h2>
       <div class="cards">
         {% for requirement in requirements %}
-        <div class="card {% if loop.first %}active{% endif %}">
+        <div class="card">
           {% if requirement.title and requirement.content %}
           <div class="title">{{ requirement.title }}</div>
           <div class="description">

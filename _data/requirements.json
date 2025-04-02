@@ -1,19 +1,19 @@
 [
     {
         "title": "End-devices or hubs",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut neque efficitur, aliquam arcu non, interdum magna."
+        "content": "We don’t currently certify items such as Zigbee sticks, Z-Wave sticks, or connecting bridges without matching end devices."
     },
     {
         "title": "Available to the general public",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut neque efficitur, aliquam arcu non, interdum magna."
+        "content": "If your device is going through a crowd-funding or pre-sale campaign, we will not test it until it is fully funded and in the manufacturing stage."
     },
     {
         "title": "Available locally and not reliant on a separate cloud connection",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut neque efficitur, aliquam arcu non, interdum magna."
+        "content": "We prioritize local control above everything else. Cloud control can be an extra, but must be opt-in only."
     },
     {
         "title": "Available to access firmware updates directly in Home Assistant",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut neque efficitur, aliquam arcu non, interdum magna."
+        "content": "Ideally, all devices should be able to access over-the-air (OTA) firmware updates from within our system. If this isn't possible, you must provide a way to alert users about firmware updates."
     },
     {
         "items": [
@@ -37,6 +37,6 @@
     },
     {
         "title": "All devices must have FCC/CE or equivalent certification",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut neque efficitur, aliquam arcu non, interdum magna."
+        "content": "Above all, partners need to share our values of Privacy, Choice, and Sustainability."
     }
 ]

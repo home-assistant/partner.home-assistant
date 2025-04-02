@@ -1,5 +1,5 @@
 export default {
-	title: "Nabu Casa",
-	url: "https://nabucasa.com/",
+	title: "Works with Home Assistant",
+	url: "https://works-with.home-assistant.io/",
 	language: "en"
 }

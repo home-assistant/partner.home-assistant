@@ -19,6 +19,6 @@
     gap: var(--layout-columns-gap);
 
     .col {
-        flex: 1;
+        flex-grow: 1;
     }
 }

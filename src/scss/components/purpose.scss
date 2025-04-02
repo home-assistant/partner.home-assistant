@@ -13,13 +13,15 @@ section.purpose {
     }
 
     .inner {
+        align-items: center;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 3rem 0;
 
-        div {
-            flex-grow: 1;
-            flex-shrink: 0;
+        @include mixins.bp(tablet) {
+            flex-direction: row;
         }
+
     }
 
     .purpose-content {
@@ -34,11 +36,23 @@ section.purpose {
     }
 
     .purpose-graphic {
-        aspect-ratio: 1/1;
+        aspect-ratio: 2/1;
         width: 100%;
         position: relative;
         z-index: -1;
         order: -1;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: -10%;
+            right: -10%;
+            aspect-ratio: 1/1;
+            top: 50%;
+            transform: translateY(-50%);
+            // circle gradient from transparent to body background color
+            background: radial-gradient(circle, transparent 0%, var(--body-background-color) 100%);
+        }
 
         @include mixins.bp(tablet) {
             order: 1;
@@ -50,7 +64,11 @@ section.purpose {
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: -1;
-            width: 230%;
+            width: 250%;
+
+            @include mixins.bp(desktop) {
+                width: 230%;
+            }
         }
     }
 }

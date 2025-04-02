@@ -1,0 +1,32 @@
+@use 'mixins';
+
+.footer {
+    padding: 50px 0;
+
+    @include mixins.bp(desktop) {
+        padding: 100px 0;
+    }
+
+    .cols .col:first-child {
+        flex-grow: 1;
+    }
+
+    .cols .col:last-child {
+        flex-grow: 0;
+    }
+
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        text-wrap: balance;
+        gap: 10px;
+
+        @include mixins.bp(desktop) {
+            font-size: 20px;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+    }
+}

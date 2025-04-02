@@ -12,17 +12,27 @@ section.hero {
     text-align: center;
 
     .subtitle {
-        align-items: center;
         color: var(--brand-color-home-assistant-blue);
         display: flex;
         flex-wrap: wrap;
-        font-size: 36px;
-        font-weight: 400;
+        gap: 2rem;
+        font-size: 30px;
         justify-content: center;
+        font-weight: 400;
         margin-top: 28px;
+
+        div {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .5rem 0;
+        }
+
 
         img {
             margin-left: .75rem;
+            max-width: 100%;
         }
     }
 }

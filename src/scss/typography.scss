@@ -61,3 +61,27 @@ p:not(:last-child) {
 strong {
     font-weight: 800
 }
+
+a:not(.button) {
+    align-self: flex-start;
+    text-decoration: none;
+    position: relative;
+    color: initial;
+
+    &:after {
+        content: '';
+        left: 0;
+        width: 0%;
+        height: 1px;
+        position: absolute;
+        top: calc(100% + 2px);
+        background-color: var(--color-primary);
+        transition: width .3s ease-out
+    }
+
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+}
