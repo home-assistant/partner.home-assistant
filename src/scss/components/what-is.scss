@@ -1,0 +1,125 @@
+@use "../mixins";
+
+section.what-is {
+
+    color: var(--text-color);
+    align-items: center;
+    position: relative;
+
+
+    .cols {
+
+        @include mixins.bp(desktop) {
+            flex-wrap: nowrap;
+        }
+
+        .col.what-is-content {
+            padding-top: 40px;
+            padding-bottom: 40px;
+
+            @include mixins.bp(desktop) {
+                padding-bottom: 0;
+                padding-top: 55px;
+                width: calc((6/12 * 100%));
+            }
+
+            @include mixins.bp(large-desktop) {
+                padding-top: 70px;
+                width: calc(4/12 * 100%);
+            }
+
+            h2 {
+                margin-bottom: 30px;
+
+            }
+        }
+
+        .col.what-is-creators {
+            margin-left: auto;
+            width: 100%;
+            position: relative;
+
+            @include mixins.bp(desktop) {
+                max-width: calc(6/12 * 100%);
+            }
+
+            @include mixins.bp(large-desktop) {
+                max-width: calc(5/12 * 100%);
+                margin-right: calc(1/12 * 100%);
+                max-height: 850px;
+                margin-top: -100px;
+                overflow: hidden;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 75%;
+                left: 0;
+                width: 100%;
+                bottom: 0;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--body-background-color) 100%);
+            }
+        }
+
+        .shape.shape-four {
+            position: absolute;
+            right: -52px;
+            height: 210px;
+            bottom: 0;
+
+        }
+    }
+
+    .creators {
+        display: grid;
+        width: 100%;
+        gap: 8px 10px;
+        //grid-template-columns: auto auto auto auto;
+        // use repeat like repeat(4, 1fr) to make it responsive
+        grid-template-columns: auto auto auto auto;
+        height: 400px;
+        overflow: hidden;
+
+        @include mixins.bp(large-mobile) {
+            gap: 12px 16px;
+            grid-template-columns: auto auto auto auto auto auto;
+            height: 500px;
+        }
+
+        @include mixins.bp(desktop) {
+            height: auto;
+            gap: 18px 20px;
+            grid-template-columns: auto auto auto auto;
+
+        }
+
+        @include mixins.bp(large-desktop) {}
+
+
+        .creator {
+            aspect-ratio: 125/230;
+            border-radius: 10rem;
+            overflow: hidden;
+            z-index: -1;
+            height: min-content;
+            max-width: 10rem;
+            background-color: #e3e3e3;
+
+
+            &:nth-child(2n) {
+                margin-top: -100%;
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+
+
+
+            }
+        }
+    }
+}

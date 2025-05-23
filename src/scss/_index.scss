@@ -2,6 +2,7 @@
 @use "reset";
 @use "variables";
 @use "typography";
+@use "animations";
 
 // Global Styles
 @use "base";
@@ -10,15 +11,10 @@
 @use "buttons";
 @use "header";
 @use "footer";
+@use "shape";
 @use "sticky-scroll";
 @use "wrappers";
 
 // Components
 @use "components/hero";
-@use "components/purpose";
-@use "components/logo-slider";
-@use "components/benefits";
-@use "components/requirements";
-@use "components/cta-text";
-@use "components/whats-involved";
-@use "components/contact-us";
+@use "components/what-is";

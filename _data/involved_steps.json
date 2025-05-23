@@ -1,33 +1,33 @@
 [
     {
         "icon": "choose",
-        "title": "Step 1",
+        "title": "Choose the products you would like to certify",
         "description": "We can advise on our testing availability and help you prioritize your device list."
     },
     {
         "icon": "sign",
-        "title": "Step 2",
+        "title": "Sign our WWHA agreement",
         "description": "This lays out clearly each party’s responsibilities to each other."
     },
     {
         "icon": "fee",
-        "title": "Step 3",
+        "title": "Pay the annual fee payment of 500 Swiss Francs",
         "description": "Designed to cover admin only, so the program can still be a great fit for start-up companies.",
         "note": "* Approx. 566 USD"
     },
     {
         "icon": "tested",
-        "title": "Step 4",
+        "title": "Our expert team tests devices",
         "description": "Let us know if you require any customizations to help our team start using your devices."
     },
     {
         "icon": "feedback",
-        "title": "Step 5",
+        "title": "Testing feedback is given",
         "description": "Not simply a pass/fail: Feedback rounds are imperative to help us address issues and keep user experience a top priority."
     },
     {
         "icon": "approval",
-        "title": "Step 6",
+        "title": "Approval and WWHA badge awarded",
         "description": "Use the badge on product listings, web pages, packaging, and other marketing material to showcase your connection with our community."
     }
 ]

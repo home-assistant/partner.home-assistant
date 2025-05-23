@@ -5,6 +5,7 @@
 .button {
     background: var(--brand-color-home-assistant-blue);
     border-radius: 40px;
+    box-shadow: 0 3px 8px rgb(0, 0, 0, 0);
     color: #FFFFFF;
     display: inline-flex;
     font-weight: 500;
@@ -13,10 +14,12 @@
     white-space: nowrap;
     position: relative;
     overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out, background-position 0.3s ease-in-out;
 
     &.animated {
         background: linear-gradient(259deg, #0C88C8 -14.63%, #57FFC1 104.2%);
         background-size: 300% 300%;
+
         animation: gradient 5s ease-in-out infinite;
 
         &:hover {
@@ -28,13 +31,18 @@
         @include mixins.bp(desktop) {
             padding: 16px 40px;
             font-size: 24px;
+            font-weight: 400;
         }
+    }
+
+    &:hover {
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     }
 }
 
 @keyframes gradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
     }
 
     50% {
@@ -42,6 +50,6 @@
     }
 
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 100%;
     }
 }

@@ -1,5 +1,6 @@
 export default {
-	title: "Works with Home Assistant",
-	url: "https://works-with.home-assistant.io/",
+	title: "Home Assistant Creator Network",
+	url: "https://creators.home-assistant.io/",
+	description: "The creator network is a group of creators that are active and engaged with our community with consistent content that builds the archive for Home Assistante, both now and in the future.",
 	language: "en"
 }

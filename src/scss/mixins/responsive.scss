@@ -1,24 +1,37 @@
-@mixin bp($breakpoint) {
+$breakpoint-large-mobile: 500px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large-desktop: 1210px;
+
+$breakpoints: (
+    base: 0px,
+    large-mobile: $breakpoint-large-mobile,
+    tablet: $breakpoint-tablet,
+    desktop: $breakpoint-desktop,
+    large-desktop: $breakpoint-large-desktop
+);
+
+@mixin bp($breakpoint, $extraPx: 0px) {
     @if $breakpoint ==large-mobile {
-        @media (min-width: 500px) {
+        @media (min-width: ($breakpoint-large-mobile + $extraPx)) {
             @content;
         }
     }
 
     @else if $breakpoint ==tablet {
-        @media (min-width: 768px) {
+        @media (min-width: ($breakpoint-tablet + $extraPx)) {
             @content;
         }
     }
 
     @else if $breakpoint ==desktop {
-        @media (min-width: 1024px) {
+        @media (min-width: ($breakpoint-desktop + $extraPx)) {
             @content;
         }
     }
 
     @else if $breakpoint ==large-desktop {
-        @media (min-width: 1280px) {
+        @media (min-width: ($breakpoint-large-desktop + $extraPx)) {
             @content;
         }
     }
@@ -27,6 +40,27 @@
     @else {
         @media (min-width: $breakpoint) {
             @content;
+        }
+    }
+}
+
+@mixin responsive($property, $values...) {
+    $index: 0;
+
+    @each $name, $bp in $breakpoints {
+        $index: $index + 1;
+        $value: if(length($values) >=$index, nth($values, $index), null);
+
+        @if $value !=null {
+            @if $bp ==0px {
+                #{$property}: $value;
+            }
+
+            @else {
+                @media (min-width: $bp) {
+                    #{$property}: $value;
+                }
+            }
         }
     }
 }

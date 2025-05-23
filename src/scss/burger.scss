@@ -3,8 +3,8 @@
     --burger-bar-width: 18px;
     --burger-border-radius: 2px;
     --burger-bar-spacing: 6px;
-    --burger-bar-color: var(--body-color);
-    --burger-transition-speed: 0.1s;
+    --burger-bar-color: #ffffff;
+    --burger-transition-speed: 0.25s;
 }
 
 .burger {
@@ -41,7 +41,8 @@
             position: absolute;
             transition: transform var(--burger-transition-speed),
                 top var(--burger-transition-speed),
-                bottom var(--burger-transition-speed);
+                bottom var(--burger-transition-speed),
+                background-color var(--burger-transition-speed);
         }
 
         &:before {

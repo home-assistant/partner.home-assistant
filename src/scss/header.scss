@@ -1,13 +1,14 @@
 @use 'mixins';
 
 .header {
+    --text-color: #fff;
     padding: 20px 0;
     width: 100%;
     isolation: isolate;
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--body-background-color);
+
     transition: padding 0.25s;
 
     @include mixins.bp(tablet) {
@@ -16,6 +17,51 @@
 
     @include mixins.bp(large-desktop) {
         padding: 40px 0;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(var(--body-background-color-rgb), 0.5);
+        backdrop-filter: blur(10px);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.25s;
+    }
+
+    &.float {
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    &.float,
+    &.open {
+        --text-color: var(--color-primary);
+
+        .logo {
+            &.logo-light {
+                opacity: 0;
+            }
+
+            &.logo-dark {
+                opacity: 1;
+            }
+        }
+    }
+
+    .logo {
+        display: grid;
+        transition: opacity 0.25s;
+
+        &.logo-dark {
+            opacity: 0;
+        }
+
+        img {
+            grid-area: 1/1;
+        }
     }
 
     .container {
@@ -29,7 +75,7 @@
         >.nav {
             display: none;
 
-            @include mixins.bp(desktop) {
+            @include mixins.bp(large-desktop) {
                 display: flex;
             }
         }
@@ -72,6 +118,10 @@
             flex-direction: column;
             padding: 20px 0;
             gap: 10px;
+
+            a {
+                align-self: unset;
+            }
         }
     }
 
@@ -87,24 +137,25 @@
 
         &-item {
             text-decoration: none;
-            color: inherit;
+            color: var(--text-color);
+            transition: color 0.25s;
             padding: 10px 10px;
             position: relative;
 
             &:after {
                 content: '';
-                left: 10px;
+                left: 16px;
                 width: 0%;
                 height: 1px;
-                background-color: var(--body-color);
+                background-color: var(--text-color);
                 position: absolute;
-                top: calc(100% - 8px);
+                top: calc(100% - 6px);
                 transition: width 0.25s;
             }
 
             &:hover {
                 &:after {
-                    width: calc(100% - 20px);
+                    width: calc(100% - 32px);
                 }
             }
         }
@@ -124,10 +175,11 @@
     }
 
     .burger {
+        --burger-bar-color: var(--text-color);
         justify-self: flex-end;
     }
 
-    @include mixins.bp(desktop) {
+    @include mixins.bp(large-desktop) {
         .burger {
             display: none;
         }

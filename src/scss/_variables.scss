@@ -5,21 +5,25 @@
     --color-primary: #002332;
     --color-secondary: #4F606E;
 
+    --color-light-primary: #00AEF8;
+
     // Body
-    --body-background-color: #F5F6FA;
+    --body-background-color-rgb: 245, 246, 250;
+    --body-background-color: rgb(var(--body-background-color-rgb));
     --body-color: var(--color-primary);
 
     // Typography
     --typography-base-font: "Figtree", serif;
     --typography-heading-line-height: 1.25;
 
-    --typography-h1-font-size: 45px;
+    --typography-h1-font-size: 62px;
     --typography-h1-font-weight: 700;
     --typography-h1-line-height: var(--typography-heading-line-height);
 
     --typography-h2-font-size: 30px;
-    --typography-h2-font-weight: 500;
+    --typography-h2-font-weight: 700;
     --typography-h2-line-height: 1.1;
+    --typography-h2-subtitle-font-size: 24px;
 
     --typography-h3-font-size: 25px;
     --typography-h3-font-weight: 500;
@@ -28,6 +32,10 @@
     --typography-paragraph-font-size: 16px;
     --typography-paragraph-font-weight: 300;
     --typography-paragraph-line-height: 1.25;
+
+    --typography-text-large-font-size: 24px;
+    --typography-text-large-font-weight: 300;
+    --typography-text-large-line-height: 1.25;
 
     // Brand Colors
     --brand-color-home-assistant-blue: #18BCF2;
@@ -43,12 +51,19 @@
     --layout-columns-gap: 16px 32px;
 }
 
+@include mixins.bp(large-mobile) {
+    :root {
+        --typography-h1-font-size: 100px;
+    }
+}
+
 @include mixins.bp(tablet) {
     :root {
-        --typography-h1-font-size: 60px;
+        --typography-h1-font-size: 136px;
         --typography-h2-font-size: 40px;
         --typography-h3-font-size: 30px;
         --typography-paragraph-font-size: 18px;
+        --typography-text-large-font-size: 28px;
 
         --layout-container-padding: 24px;
         --layout-columns-gap: 16px 48px;
@@ -57,10 +72,12 @@
 
 @include mixins.bp(desktop) {
     :root {
-        --typography-h1-font-size: 100px;
+        --typography-h1-font-size: 168px;
         --typography-h2-font-size: 70px;
+        --typography-h2-subtitle-font-size: 48px;
         --typography-h3-font-size: 48px;
         --typography-paragraph-font-size: 20px;
+        --typography-text-large-font-size: 32px;
 
         --layout-container-padding: 40px;
         --layout-columns-gap: 16px 64px;

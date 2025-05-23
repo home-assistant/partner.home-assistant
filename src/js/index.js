@@ -1,45 +1,4 @@
-let logoCarousels = document.querySelectorAll('.logo-slider .swiper');
-if (logoCarousels) {
-    let r = true;
-    logoCarousels.forEach(logoCarousel => {
-        r = !r;
-        new Swiper(logoCarousel, {
-            slidesPerView: 2.5,
-            speed: 1500,
-            loop: true,
-            centeredSlides: true,
-            edgeSwipeDetection: 'prevent',
-            autoplay: {
-                delay: 750,
-                reverseDirection: r,
-                preventSwipeThreshold: 120,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-            spaceBetween: 10,
-            breakpoints: {
-                768: {
-                    slidesPerView: 6.5,
-                    spaceBetween: 20
-                },
-            }
-        });
-    });
-}
 
-let stepsWrapper = document.querySelector('.whats-involved .steps');
-let steps = stepsWrapper.querySelectorAll('.step');
-let currentStep = 1;
-if (steps) {
-    setInterval(() => {
-        steps.forEach(step => {
-            step.classList.remove('active');
-        });
-        steps[currentStep].classList.add('active');
-        stepsWrapper.setAttribute('data-step', currentStep);
-        currentStep = currentStep === steps.length - 1 ? 0 : currentStep + 1;
-    }, 4000);
-}
 
 let header = document.querySelector('.header');
 let burger = header.querySelector('.burger');
@@ -49,6 +8,18 @@ if (burger) {
         header.classList.toggle('open');
     });
 }
+
+// if scroll > 10px add class 'scroll' to header
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    let scroll = window.scrollY;
+    if (scroll > 10) {
+        header.classList.add('float');
+    } else {
+        header.classList.remove('float');
+    }
+    lastScroll = scroll;
+});
 
 let navItems = header.querySelectorAll('.nav-item');
 if (navItems) {
@@ -75,3 +46,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+let copyTargets = document.querySelectorAll("[data-copy]");
+if (copyTargets) {
+    copyTargets.forEach(copyTarget => {
+        copyTarget.addEventListener('click', () => {
+            let text = copyTarget.getAttribute('data-copy');
+            let innerHTML = copyTarget.innerHTML;
+            navigator.clipboard.writeText(text).then(() => {
+                copyTarget.classList.add('copied');
+                copyTarget.innerHTML = "Copied!";
+                setTimeout(() => {
+                    copyTarget.classList.remove('copied');
+                    copyTarget.innerHTML = innerHTML;
+                }, 2000);
+            });
+        });
+    });
+}

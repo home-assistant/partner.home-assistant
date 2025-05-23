@@ -16,3 +16,56 @@ body {
     background-color: var(--body-background-color);
     color: var(--body-color);
 }
+
+* {
+    color: var(--text-color, var(--color-primary));
+}
+
+img.lazy {
+    filter: blur(5px);
+    transition: filter s ease-in-out;
+}
+
+.lazy-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    &.loaded {
+
+        &:after {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        img {
+            opacity: 1;
+        }
+    }
+
+    img {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        opacity: 0;
+    }
+
+
+    &:after {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+
+
+    &:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: #efefef;
+        background-image: var(--placeholder);
+        background-size: cover;
+        background-position: center;
+        filter: blur(10px);
+    }
+}

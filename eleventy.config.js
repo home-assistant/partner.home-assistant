@@ -1,24 +1,26 @@
 import { InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
-import pluginNavigation from "@11ty/eleventy-navigation";
 import pluginFilters from "./_config/filters.js";
+import { SHAPES } from "./_config/shapes.js";
+import placeholder from "./_config/placeholder.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
 	eleventyConfig
 		.addPassthroughCopy({
-			"./public/": "/",
+			"public": "/",
 			"src/img": "img",
 			"src/js": "js",
 			"src/svg": "svg",
 		});
 
+	eleventyConfig.addGlobalData("CACHE_KEY", btoa("" + new Date().valueOf()).replaceAll("=", ""));
+
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
 	// Watch content images for the image pipeline.
-	//eleventyConfig.addWatchTarget("src/**/*.{svg,webp,png,jpeg}");
 	eleventyConfig.addWatchTarget("src/scss/**/*.scss");
 	eleventyConfig.addWatchTarget("src/js/**/*.js");
 	eleventyConfig.addWatchTarget("src/svg/**/*");
@@ -33,10 +35,10 @@ export default async function (eleventyConfig) {
 		preAttributes: { tabindex: 0 }
 	});
 	eleventyConfig.addPlugin(pluginFilters);
-	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(HtmlBasePlugin);
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 	eleventyConfig.addPlugin(syntaxHighlight);
+	eleventyConfig.addPlugin(placeholder);
 
 	eleventyConfig.addFilter("sitemapExclude", function (collection) {
 		return collection.filter(item => item.data.sitemap !== false);
@@ -44,6 +46,23 @@ export default async function (eleventyConfig) {
 
 	eleventyConfig.addFilter("stringify", function (value) {
 		return JSON.stringify(value);
+	});
+
+	eleventyConfig.addShortcode("shape", function (shape) {
+		if (!shape) return "";
+		if (!SHAPES[shape.toUpperCase()]) return "";
+
+		return `<div class="shape shape-${shape.toLowerCase()}">${SHAPES[shape.toUpperCase()]}</div>`;
+	});
+
+	eleventyConfig.addShortcode("lazyImage", function (src, alt, width, height, placeholder) {
+		if (!src) return "";
+		if (!placeholder) placeholder = src;
+		if (!alt) alt = "";
+		if (!width) width = 0;
+		if (!height) height = 0;
+
+		return `<div class="lazy-image" style="--placeholder: url('${placeholder}')" ><img data-src="${src}" alt="${alt}" width="${width}" height="${height}"></div>`;
 	});
 };
 

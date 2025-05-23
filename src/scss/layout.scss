@@ -16,9 +16,8 @@
 .cols {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     gap: var(--layout-columns-gap);
 
-    .col {
-        flex: 1;
-    }
+    .col {}
 }

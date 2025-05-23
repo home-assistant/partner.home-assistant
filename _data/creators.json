@@ -1,7 +1,114 @@
 {
   "members": [
     {
-      
+      "name": "Everything Smart Home",
+      "image": "EverythingSmartHome.jpg",
+      "url": "https://www.youtube.com/c/EverythingSmartHome"
+    },
+    {
+      "name": "Mark Watt Tech",
+      "image": "MarkWattTechLogo.jpg",
+      "url": "https://www.youtube.com/c/MarkWattTech"
+    },
+    {
+      "name": "Home Assistant Podcast",
+      "image": "hass-podcast-logo.jpg",
+      "url": "https://hasspodcast.io/"
+    },
+    {
+      "name": "Juan M Tech",
+      "image": "JuanMTech.png",
+      "url": "https://www.youtube.com/c/JuanMTech"
+    },
+    {
+      "name": "Bearded Tinker",
+      "image": "BeardedTinkerer.jpg",
+      "url": "https://www.youtube.com/channel/UCuqokNoK8ZFNQdXxvlE129g"
+    },
+    {
+      "name": "Dr Zzs",
+      "image": "DrZzs-Emoji.png",
+      "url": "https://www.youtube.com/c/DrZzs"
+    },
+    {
+      "name": "Home Automation Guy",
+      "image": "Alan.jpg",
+      "url": "https://youtube.com/c/HomeAutomationGuy"
+    },
+    {
+      "name": "Carlos",
+      "image": "Carlos.jpg",
+      "url": "https://youtube.com/channel/UC2zp7AWsYhZaGmYTjP8hZ7A"
+    },
+    {
+      "name": "Kiril",
+      "image": "Kiril.jpg",
+      "url": "https://www.youtube.com/kpeyanski"
+    },
+    {
+      "name": "Make it work",
+      "image": "makeitwork.jpg",
+      "url": "https://youtube.com/c/MakeItWorkTech"
+    },
+    {
+      "name": "Rosemary Orchard",
+      "image": "rosemary_orchard.jpg",
+      "url": "https://twitter.com/RosemaryOrchard"
+    },
+    {
+      "name": "The Hook Up",
+      "image": "The_hook_up.jpg",
+      "url": "https://www.youtube.com/c/TheHookUp"
+    },
+    {
+      "name": "Mostly Chris",
+      "image": "mostlyChris.jpg",
+      "url": "https://www.youtube.com/c/mostlychris"
+    },
+    {
+      "name": "Slacker Labs",
+      "image": "SlackerLabs.jpg",
+      "url": "https://www.youtube.com/c/SlackerLabs"
+    },
+    {
+      "name": "Terrence Smith",
+      "image": "Terrence.jpg",
+      "url": "https://vm.tiktok.com/ZTdqMsmUG/"
+    },
+    {
+      "name": "Smart Rev",
+      "image": "smart_rev.jpg",
+      "url": "https://www.youtube.com/c/smartrev"
+    },
+    {
+      "name": "Smart Home Junkie",
+      "image": "SmartHomeJunkie.jpg",
+      "url": "https://www.youtube.com/c/smarthomejunkie"
+    },
+    {
+      "name": "Vaclav",
+      "image": "vaclav.jpg",
+      "url": "https://youtube.com/c/VaclavChaloupkaPhoto"
+    },
+    {
+      "name": "digiblurDIY",
+      "image": "digiblur.jpg",
+      "url": "https://www.youtube.com/digiblurDIY"
+    },
+    {
+      "name": "ArminasTV",
+      "image": "arminastv.jpg",
+      "url": "https://www.youtube.com/@ArminasTV"
+    },
+    {
+      "name": "Home Assistant Communaute Francophone",
+      "image": "hacf.jpg",
+      "url": "https://www.hacf.fr"
+    },
+    {
+      "name": "Smart Home Solver",
+      "image": "smarthomesolver.jpg",
+      "url": "https://www.youtube.com/@SmartHomeSolver"
     }
   ]
 }

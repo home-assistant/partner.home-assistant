@@ -4,6 +4,23 @@
     position: relative;
     overflow: hidden;
 
+    .bg-lines {
+        background-image: url(/img/lines-m.svg);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100%;
+        position: absolute;
+        inset: 0;
+        max-height: 22rem;
+
+        @include mixins.bp(tablet) {
+            background-image: url(/img/lines.svg);
+            background-size: 250% 50%;
+            max-height: unset;
+        }
+    }
+
+
     &:before,
     &:after {
         --to: top;

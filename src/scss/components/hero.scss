@@ -1,38 +1,191 @@
 @use "../mixins";
 
 section.hero {
+    --text-color: #ffffff;
+    color: var(--text-color);
+    align-items: center;
+    position: relative;
 
-    margin: 60px 0;
-
-    @include mixins.bp(desktop) {
-        margin: 60px 0;
+    &:before {
+        content: '';
+        background: linear-gradient(90deg, #0898C7 0%, #006BA8 100%);
+        position: absolute;
+        height: 120px;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
     }
 
-    align-items: center;
-    text-align: center;
+    .container {
+        display: flex
+    }
 
-    .subtitle {
-        color: var(--brand-color-home-assistant-blue);
+    .hero-inner {
+        padding: 60px 0;
+        isolation: isolate;
+        background: linear-gradient(90deg, #0898C7 0%, #006BA8 100%);
+
+        @include mixins.bp(large-desktop) {
+            padding: 120px 0;
+        }
+    }
+
+    .heading-wrapper {
         display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        font-size: 30px;
-        justify-content: center;
-        font-weight: 400;
-        margin-top: 28px;
+        flex-direction: column;
+        gap: 30px 20px;
+
+        @include mixins.bp(large-desktop) {
+            align-items: flex-end;
+            flex-direction: row;
+        }
+
+        .shape {
+            --width: 140px;
+            color: var(--color-light-primary);
+            width: var(--width);
+            position: absolute;
+            left: calc((100% - (var(--width) / 2)) + 10%);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: -1;
+            transform-origin: top;
+            scale: 0.8;
+            opacity: 0;
+            animation: zoom-in 1.5s .5s ease-out forwards;
+
+            svg {
+                animation: rotate 80s linear infinite;
+                width: 100%;
+            }
+
+            @include mixins.bp(large-mobile) {
+                --width: 200px;
+                left: calc((100% - (var(--width) / 2)) + 2%);
+            }
+
+            @include mixins.bp(desktop) {
+                --width: 230px;
+            }
+
+            @include mixins.bp(large-desktop) {
+                --width: 255px;
+            }
+        }
+
+        h1 {
+            display: inline-flex;
+            flex-direction: column;
+            line-height: 1;
+            white-space: nowrap;
+
+            @include mixins.bp(large-desktop) {
+                align-items: flex-end;
+            }
+
+            div:last-child {
+                z-index: -2;
+            }
+        }
 
         div {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: .5rem 0;
+            display: inline-block;
+            position: relative;
+        }
+    }
+
+    .subtitle {
+        display: flex;
+        flex-direction: column;
+        font-size: 30px;
+        line-height: 1.2;
+        gap: 8px;
+
+
+        @include mixins.bp(large-desktop) {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        span:last-child {
+            font-weight: 600;
+        }
+
+        img {
+            display: block;
+            width: 230px;
+
+            @include mixins.bp(large-mobile) {
+                width: 310px;
+            }
+        }
+    }
+
+    .hero-content-intro {
+        width: 100%;
+        max-width: 670px;
+        margin-left: auto;
+        margin-top: 60px;
+
+        @include mixins.bp(large-mobile) {
+            margin-top: 80px;
+        }
+
+        @include mixins.bp(tablet) {
+            margin-top: 100px;
+        }
+
+        @include mixins.bp(desktop) {
+            margin-top: 115px;
+        }
+
+        @include mixins.bp(large-desktop) {
+            margin-top: 130px;
+            margin-right: calc(1/12 * 100%);
+        }
+    }
+
+    .wave {
+        position: relative;
+        top: 0;
+        height: 105px;
+
+        @include mixins.bp(desktop) {
+            height: 83px;
+        }
+
+        @include mixins.bp(large-desktop) {
+            height: 160px;
         }
 
 
-        img {
-            margin-left: .75rem;
-            max-width: 100%;
+        .shape-two {
+            position: absolute;
+            z-index: 1;
+            width: 157px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            @include mixins.bp(desktop) {
+                width: 250px;
+                top: 0;
+            }
+
+            @include mixins.bp(large-desktop) {
+                width: 315px;
+                top: 35%;
+
+            }
+
+        }
+
+        .shape-wave_one {
+            overflow: hidden;
+
+            svg {
+                width: calc(100% + 4px);
+                margin-left: -2px;
+            }
         }
     }
 }

@@ -1,3 +1,5 @@
+@use 'mixins';
+
 body {
     font-family: var(--typography-base-font);
 }
@@ -10,6 +12,12 @@ h5,
 h6 {
     text-wrap: balance;
     transition: font-size .15s ease-out;
+
+    span {
+        display: block;
+        font-weight: 400;
+        font-size: var(--heading-subtitle-font-size);
+    }
 }
 
 h1 {
@@ -19,6 +27,7 @@ h1 {
 }
 
 h2 {
+    --heading-subtitle-font-size: var(--typography-h2-subtitle-font-size);
     font-size: var(--typography-h2-font-size);
     font-weight: var(--typography-h2-font-weight);
     line-height: var(--typography-h2-line-height);
@@ -54,8 +63,30 @@ p {
     line-height: var(--typography-paragraph-line-height);
 }
 
-p:not(:last-child) {
+.text-large {
+    font-size: var(--typography-text-large-font-size);
+    line-height: var(--typography-paragraph-line-height);
+    font-weight: var(--typography-text-large-font-weight);
+}
+
+p:not(:last-of-type) {
     margin-bottom: 1.25rem;
+}
+
+p+.button {
+    margin-top: 30px;
+
+    @include mixins.bp(large-mobile) {
+        margin-top: 40px;
+    }
+
+    @include mixins.bp(desktop) {
+        margin-top: 50px;
+    }
+
+    @include mixins.bp(large-desktop) {
+        margin-top: 60px;
+    }
 }
 
 strong {
@@ -83,5 +114,15 @@ a:not(.button) {
         &:after {
             width: 100%;
         }
+    }
+}
+
+[data-copy] {
+    display: block;
+    padding: 1rem;
+    cursor: pointer;
+
+    &.copied {
+        pointer-events: none;
     }
 }

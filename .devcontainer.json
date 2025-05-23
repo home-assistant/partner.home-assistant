@@ -1,5 +1,5 @@
 {
-	"name": "home-assistant/partner.home-assistant",
+	"name": "home-assistant/works-with.home-assistant.io",
 	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
 	"forwardPorts": [
 		8080
@@ -22,7 +22,8 @@
 			"extensions": [
 				"esbenp.prettier-vscode",
 				"yzhang.markdown-all-in-one",
-				"davidanson.vscode-markdownlint"
+				"davidanson.vscode-markdownlint",
+				"jock.svg"
 			],
 			"settings": {
 				"editor.formatOnPaste": false,

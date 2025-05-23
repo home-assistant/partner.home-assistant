@@ -1,36 +1,32 @@
 {
-	"name": "partner.home-assistant.io",
+	"name": "works-with.home-assistant.io",
 	"version": "2.0.0",
 	"description": "The website for the Home Assistant Partner website",
 	"type": "module",
 	"scripts": {
-		"build": "npx @11ty/eleventy && npm run build:scss && npm run build:svg",
+		"build": "npx @11ty/eleventy && npm run build:scss",
 		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 npx @11ty/eleventy",
 		"build-ghpages": "npx @11ty/eleventy --pathprefix=/site/",
-		"start": "npx @11ty/eleventy --serve --quiet && npm run watch:js",
+		"start": "npx @11ty/eleventy --serve --quiet && npm run watch",
 		"start-ghpages": "npx @11ty/eleventy --pathprefix=/site/ --serve --quiet && npm run watch:js",
 		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
 		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
 		"build:scss": "sass src/scss/_index.scss:_site/css/index.css",
-		"build:svg": "svg-sprite --config sprite-conf.json src/svg/*.svg",
-		"watch:scss": "sass --watch src/scss/_index.scss:_site/css/index.css",
+		"watch": "npm-run-all --parallel watch:*",
 		"watch:eleventy": "npx @11ty/eleventy --watch --serve",
-		"watch:svg": "watch 'svg-sprite --config sprite-conf.json src/svg/*.svg' src/svg",
-		"watch": "npm-run-all --parallel watch:*"
+		"watch:scss": "sass --watch --poll src/scss/_index.scss:_site/css/index.css"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "3.0.0",
-		"@11ty/eleventy-img": "6.0.1",
-		"@11ty/eleventy-navigation": "0.3.5",
-		"@11ty/eleventy-plugin-rss": "2.0.2",
-		"@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
+		"@11ty/eleventy": "3.1.0",
+		"@11ty/eleventy-img": "6.0.4",
+		"@11ty/eleventy-plugin-syntaxhighlight": "5.0.1",
 		"cross-env": "7.0.3"
 	},
 	"dependencies": {
-		"@zachleat/heading-anchors": "1.0.1",
 		"npm-run-all": "^4.1.5",
 		"sass": "^1.85.1",
+		"sharp": "^0.34.2",
 		"svg-sprite": "^2.0.4",
 		"watch": "^1.0.2"
 	}
