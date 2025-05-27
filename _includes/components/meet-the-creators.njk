@@ -1,0 +1,22 @@
+<section id="meet-the-creators">
+  <div class="scrolly-text">Meet the creators</div>
+  <div class="container">
+    <div class="creator-cards">
+      {% for member in creators.members %}
+      <div class="creator-card">
+        <img
+          src="/img/creators/{{ member.image }}"
+          alt="{{ member.name }}"
+          loading="lazy"
+        />
+        <div class="creator-card-content">
+          <div class="creator-card-title">{{ member.name }}</div>
+          <div class="creator-card-description">
+            Smart home tips, reviews & DIY guides anyone can follow.
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

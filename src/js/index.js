@@ -1,5 +1,3 @@
-
-
 let header = document.querySelector('.header');
 let burger = header.querySelector('.burger');
 if (burger) {
@@ -11,7 +9,10 @@ if (burger) {
 
 // if scroll > 10px add class 'scroll' to header
 let lastScroll = 0;
-window.addEventListener('scroll', () => {
+checkHeader();
+window.addEventListener('scroll', checkHeader, { passive: true });
+
+function checkHeader() {
     let scroll = window.scrollY;
     if (scroll > 10) {
         header.classList.add('float');
@@ -19,7 +20,7 @@ window.addEventListener('scroll', () => {
         header.classList.remove('float');
     }
     lastScroll = scroll;
-});
+}
 
 let navItems = header.querySelectorAll('.nav-item');
 if (navItems) {

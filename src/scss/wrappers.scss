@@ -1,4 +1,10 @@
 .wave {
+    &.clip {
+        height: 0;
+        position: relative;
+        z-index: 1;
+    }
+
     .shape {
         overflow: hidden;
         contain: paint;

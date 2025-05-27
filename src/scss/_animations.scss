@@ -19,3 +19,15 @@
         rotate: 360deg;
     }
 }
+
+.scrolly-text {
+    --text-color: var(--color-tertiary);
+    font-weight: 700;
+    //font-size: 17vw;
+    font-size: clamp(1.5rem, 17vw, 450px);
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    gap: 0.25em;
+    overflow: hidden;
+}

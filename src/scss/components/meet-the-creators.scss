@@ -1,0 +1,39 @@
+@use "../mixins";
+
+section#meet-the-creators {
+
+    .creator-cards {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+        .creator-card {
+            display: flex;
+            padding: 10px;
+            border-radius: 15rem;
+            gap: 20px;
+            background-color: white;
+
+            img {
+                border-radius: 50%;
+                height: 200px;
+                width: 200px;
+            }
+
+            .creator-card-content {
+                display: flex;
+                flex-direction: column;
+                padding: 20px 40px 20px 0;
+            }
+
+            .creator-card-title {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 8px;
+            }
+
+            .creator-card-description {}
+
+        }
+    }
+}
