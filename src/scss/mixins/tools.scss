@@ -1,0 +1,11 @@
+@mixin debug-increments($from, $to, $stops) {
+    $between: $to - $from;
+    $increment: $between / ($stops - 1);
+
+    @debug 'Increment from #{$from} to #{$to} in #{$stops} stops:';
+
+    @for $i from 0 through ($stops - 1) {
+        $value: $from + ($i * $increment);
+        @debug 'Stop #{ $i + 1 }: #{ $value }';
+    }
+}

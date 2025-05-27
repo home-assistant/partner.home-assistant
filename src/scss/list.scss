@@ -1,0 +1,60 @@
+@use "mixins";
+
+ol {
+    counter-reset: list;
+
+    li {
+        counter-increment: list;
+        display: flex;
+
+        &:nth-child(even) {
+            &:before {
+                order: 1;
+            }
+        }
+
+        &:before {
+            content: "0" counter(list);
+        }
+    }
+}
+
+ol.biglist {
+    li {
+        align-items: flex-end;
+        display: flex;
+        gap: 16px;
+        padding: 32px 0;
+        //text-wrap: balance;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        @include mixins.bp(desktop) {
+            gap: 10px;
+        }
+
+        &:nth-child(even) {
+            text-align: right;
+        }
+
+        &:before {
+            color: var(--color-tertiary);
+            font-size: var(--typography-big-list-counter-font-size);
+            line-height: .75;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        p {
+            width: 100%;
+        }
+    }
+}

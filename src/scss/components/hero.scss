@@ -1,10 +1,10 @@
 @use "../mixins";
 
-section.hero {
+section#hero {
     --text-color: #ffffff;
-    color: var(--text-color);
     align-items: center;
-    position: relative;
+
+    z-index: 1;
 
     &:before {
         content: '';
@@ -17,11 +17,12 @@ section.hero {
     }
 
     .container {
-        display: flex
+        display: flex;
     }
 
     .hero-inner {
         padding: 60px 0;
+        overflow: hidden;
         isolation: isolate;
         background: linear-gradient(90deg, #0898C7 0%, #006BA8 100%);
 
@@ -43,8 +44,8 @@ section.hero {
         .shape {
             --width: 140px;
             color: var(--color-light-primary);
-            width: var(--width);
             position: absolute;
+            width: var(--width);
             left: calc((100% - (var(--width) / 2)) + 10%);
             top: 50%;
             transform: translateY(-50%);
@@ -175,16 +176,6 @@ section.hero {
                 width: 315px;
                 top: 35%;
 
-            }
-
-        }
-
-        .shape-wave_one {
-            overflow: hidden;
-
-            svg {
-                width: calc(100% + 4px);
-                margin-left: -2px;
             }
         }
     }

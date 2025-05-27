@@ -1,0 +1,176 @@
+@use "../mixins";
+
+section#what-it-takes {
+    --text-color: #ffffff;
+    background-color: var(--color-primary);
+
+    h2 {
+        position: relative;
+        text-align: center;
+        margin-bottom: var(--section-spacing-y);
+
+        .shape {
+            --width: 140px;
+            width: var(--width);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            animation: zoom-in 1.5s .5s ease-out forwards;
+            z-index: -1;
+
+            @include mixins.bp(large-mobile) {
+                --width: 200px;
+
+            }
+
+            @include mixins.bp(desktop) {
+                --width: 230px;
+            }
+
+            @include mixins.bp(large-desktop) {
+                --width: 255px;
+            }
+
+            svg {
+                animation: rotate 80s linear infinite;
+                width: 100%;
+            }
+
+            svg path {
+                fill: var(--color-primary-light);
+            }
+        }
+    }
+
+    .cols {
+        flex-wrap: nowrap;
+        flex-direction: column;
+
+        @include mixins.bp(tablet) {
+            flex-direction: row;
+        }
+
+
+        .col.content-col {
+            width: 100%;
+
+            @include mixins.bp(tablet) {
+                max-width: calc(6/12 * 100%);
+
+                .biglist {
+                    max-width: 440px;
+                }
+            }
+
+
+            .biglist {
+                margin: 0 auto;
+
+            }
+        }
+
+        .col.video-col {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            flex-shrink: 0;
+
+            @include mixins.bp(tablet) {
+                width: calc(6/12 * 100%);
+            }
+
+            .video-wrapper {
+                display: flex;
+                position: relative;
+
+                video {
+                    width: 100%;
+                    overflow: hidden;
+                    aspect-ratio: 670/442;
+                    border-radius: 20px;
+                    object-fit: cover;
+                }
+
+                .shape {
+                    bottom: 0;
+                    display: none;
+                    left: 0;
+                    position: absolute;
+                    z-index: -1;
+
+                    transform: translate(-25%, 30%);
+
+                    @include mixins.bp(tablet) {
+                        display: block;
+                    }
+                }
+            }
+
+            .video-info {
+                display: flex;
+                align-items: center;
+                margin-top: 16px;
+                align-self: flex-start;
+
+                @include mixins.bp(tablet) {
+                    margin-top: 24px;
+                    align-self: flex-end;
+                }
+
+                @include mixins.bp(desktop) {
+                    margin-right: 42px;
+                }
+
+                &-avatars {
+                    display: flex;
+                    margin-right: 20px;
+
+                    img {
+                        aspect-ratio: 1/1;
+                        border-radius: 50%;
+                        border: 2px solid #ffffff;
+                        display: block;
+                        object-fit: cover;
+                        position: relative;
+                        width: 40px;
+
+                        &:not(:first-child) {
+                            margin-left: -8px;
+                        }
+                    }
+                }
+
+                &-content {
+                    display: flex;
+                    flex-wrap: wrap;
+                    font-size: 12px;
+                    gap: 4px 6px;
+                    white-space: nowrap;
+                    flex-basis: 0;
+
+                    @include mixins.bp(large-mobile) {
+                        font-size: 14px;
+                    }
+
+                    @include mixins.bp(desktop) {
+                        font-size: 16px;
+                    }
+                }
+
+                &-source {
+                    font-weight: 600;
+                }
+            }
+
+            .button {
+                margin-top: 60px;
+                align-self: center;
+
+                @include mixins.bp(tablet) {
+                    align-self: flex-end;
+                }
+            }
+        }
+    }
+}

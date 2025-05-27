@@ -1,4 +1,4 @@
-<section class="what-is">
+<section id="what-is">
   <div class="container">
     <div class="cols">
       <div class="col what-is-content">
@@ -21,7 +21,7 @@
       <div class="col what-is-creators">
         <div class="creators">
           {% for member in creators.members %}
-          <div class="creator">
+          <div class="creator loading">
             <img
               src="/img/creators/{{ member.image }}"
               alt="{{ member.name }}"
@@ -34,4 +34,28 @@
       {% shape "four" %}
     </div>
   </div>
+  <noscript>
+    <style>
+      section.what-is .what-is-creators .creators .creator.loading img {
+        opacity: 1;
+        transition: none;
+      }
+    </style>
+  </noscript>
+  <script>
+    // randomise the order of the creators using `order`
+    const creators = document.querySelector(".what-is-creators .creators");
+    const creatorElements = Array.from(creators.children);
+    creatorElements.sort(() => Math.random() - 0.5);
+    creators.innerHTML = "";
+    creatorElements.forEach((el) => {
+      creators.appendChild(el);
+    });
+    // remove all `loading` classes
+
+    const loadingElements = document.querySelectorAll(".loading");
+    loadingElements.forEach((el) => {
+      el.classList.remove("loading");
+    });
+  </script>
 </section>

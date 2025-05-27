@@ -6,6 +6,10 @@
     width: 100%;
     padding: 0 var(--layout-container-padding);
 
+    &.large {
+        max-width: var(--layout-container-large-max-width);
+    }
+
     .inner {
         margin: 0 auto;
         max-width: 1130px;

@@ -1,9 +1,14 @@
 @use 'mixins';
 
+// Useful tool for working out breakpoint stops
+// @include mixins.debug-increments(64, 128, 3);
+
 :root {
     // Colors
     --color-primary: #002332;
+    --color-primary-light: #1E3764;
     --color-secondary: #4F606E;
+    --color-tertiary: #16F3BE;
 
     --color-light-primary: #00AEF8;
 
@@ -30,12 +35,14 @@
     --typography-h3-line-height: var(--typography-heading-line-height);
 
     --typography-paragraph-font-size: 16px;
-    --typography-paragraph-font-weight: 300;
+    --typography-paragraph-font-weight: 400;
     --typography-paragraph-line-height: 1.25;
 
     --typography-text-large-font-size: 24px;
     --typography-text-large-font-weight: 300;
     --typography-text-large-line-height: 1.25;
+
+    --typography-big-list-counter-font-size: 64px;
 
     // Brand Colors
     --brand-color-home-assistant-blue: #18BCF2;
@@ -47,13 +54,18 @@
 
     // Layout
     --layout-container-max-width: 1360px;
+    --layout-container-large-max-width: 1440px;
     --layout-container-padding: 16px;
     --layout-columns-gap: 16px 32px;
+
+    // Spacing
+    --section-spacing-y: 60px;
 }
 
 @include mixins.bp(large-mobile) {
     :root {
         --typography-h1-font-size: 100px;
+        --section-spacing-y: 80px;
     }
 }
 
@@ -64,9 +76,12 @@
         --typography-h3-font-size: 30px;
         --typography-paragraph-font-size: 18px;
         --typography-text-large-font-size: 28px;
+        --typography-big-list-counter-font-size: 96px;
 
         --layout-container-padding: 24px;
         --layout-columns-gap: 16px 48px;
+
+        --section-spacing-y: 100px;
     }
 }
 
@@ -78,8 +93,11 @@
         --typography-h3-font-size: 48px;
         --typography-paragraph-font-size: 20px;
         --typography-text-large-font-size: 32px;
+        --typography-big-list-counter-font-size: 128px;
 
         --layout-container-padding: 40px;
         --layout-columns-gap: 16px 64px;
+
+        --section-spacing-y: 130px;
     }
 }

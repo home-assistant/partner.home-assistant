@@ -1,11 +1,8 @@
 @use "../mixins";
 
-section.what-is {
-
-    color: var(--text-color);
+section#what-is {
     align-items: center;
-    position: relative;
-
+    margin-bottom: var(--section-spacing-y);
 
     .cols {
 
@@ -16,6 +13,10 @@ section.what-is {
         .col.what-is-content {
             padding-top: 40px;
             padding-bottom: 40px;
+
+            p {
+                --text-color: var(--color-secondary);
+            }
 
             @include mixins.bp(desktop) {
                 padding-bottom: 0;
@@ -38,25 +39,41 @@ section.what-is {
             margin-left: auto;
             width: 100%;
             position: relative;
+            margin-bottom: 75px;
 
             @include mixins.bp(desktop) {
                 max-width: calc(6/12 * 100%);
+                margin-top: -100px;
+                margin-bottom: 0;
             }
 
             @include mixins.bp(large-desktop) {
                 max-width: calc(5/12 * 100%);
                 margin-right: calc(1/12 * 100%);
                 max-height: 850px;
-                margin-top: -100px;
                 overflow: hidden;
             }
 
+            &:before,
             &:after {
                 content: '';
                 position: absolute;
-                top: 75%;
                 left: 0;
                 width: 100%;
+            }
+
+            &:before {
+                top: 0;
+                bottom: 75%;
+                background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, var(--body-background-color) 100%);
+
+                @include mixins.bp(desktop) {
+                    display: none;
+                }
+            }
+
+            &:after {
+                top: 75%;
                 bottom: 0;
                 background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--body-background-color) 100%);
             }
@@ -64,9 +81,14 @@ section.what-is {
 
         .shape.shape-four {
             position: absolute;
-            right: -52px;
-            height: 210px;
+            right: 0;
+            width: 150px;
             bottom: 0;
+
+            @include mixins.bp(desktop) {
+                width: 210px;
+                right: -40px;
+            }
 
         }
     }
@@ -106,6 +128,12 @@ section.what-is {
             max-width: 10rem;
             background-color: #e3e3e3;
 
+            &.loading {
+                img {
+                    opacity: 0;
+                }
+            }
+
 
             &:nth-child(2n) {
                 margin-top: -100%;
@@ -116,9 +144,8 @@ section.what-is {
                 width: 100%;
                 object-fit: cover;
                 object-position: center;
-
-
-
+                opacity: 1;
+                transition: opacity 0.3s ease-in-out;
             }
         }
     }

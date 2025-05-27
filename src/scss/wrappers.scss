@@ -1,77 +1,11 @@
-@use "mixins";
+.wave {
+    .shape {
+        overflow: hidden;
+        contain: paint;
 
-.wrapper {
-    position: relative;
-    overflow: hidden;
-
-    .bg-lines {
-        background-image: url(/img/lines-m.svg);
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: 100%;
-        position: absolute;
-        inset: 0;
-        max-height: 22rem;
-
-        @include mixins.bp(tablet) {
-            background-image: url(/img/lines.svg);
-            background-size: 250% 50%;
-            max-height: unset;
+        svg {
+            width: calc(100% + 4px);
+            margin-left: -2px;
         }
-    }
-
-
-    &:before,
-    &:after {
-        --to: top;
-        content: "";
-        position: absolute;
-        height: 10%;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to var(--to), rgba(255, 255, 255, 0) 0%, var(--body-background-color) 100%);
-
-    }
-
-    &:before {
-        top: 0;
-    }
-
-    &:after {
-        --to: bottom;
-        bottom: 0;
-    }
-
-    &-a {
-        background: url('/img/blue-gradient-bg.webp');
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    &-b {
-        background: url('/img/mesh.webp');
-        background-repeat: no-repeat;
-        background-position: 5% 50%;
-
-        @include mixins.bp(desktop) {
-            background-size: cover;
-            background-position: center;
-        }
-
-        section:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-
-    section {
-        position: relative;
-        z-index: 1;
-    }
-}
-
-section+.wrapper {
-    section {
-        margin-top: 0;
     }
 }

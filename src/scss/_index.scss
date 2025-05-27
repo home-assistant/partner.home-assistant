@@ -8,9 +8,10 @@
 @use "base";
 @use "burger";
 @use "layout";
-@use "buttons";
+@use "button";
 @use "header";
 @use "footer";
+@use "list";
 @use "shape";
 @use "sticky-scroll";
 @use "wrappers";
@@ -18,3 +19,5 @@
 // Components
 @use "components/hero";
 @use "components/what-is";
+@use "components/benefits";
+@use "components/what-it-takes";

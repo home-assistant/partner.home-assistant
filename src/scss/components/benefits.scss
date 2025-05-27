@@ -1,0 +1,63 @@
+@use "../mixins";
+
+section#benefits {
+    padding-bottom: var(--section-spacing-y);
+
+    &:before {
+        background: var(--color-primary);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .benefits {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @include mixins.bp(desktop) {
+            gap: 32px;
+            flex-direction: row;
+        }
+
+        .benefit {
+            border-radius: 20px;
+            display: flex;
+            background: linear-gradient(94deg, #FFF 0%, #F2F4F9 50%, #F9F9FC 98.87%);
+            flex-basis: 0;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 40px;
+            position: relative;
+
+            @include mixins.bp(desktop) {
+                aspect-ratio: 1/1;
+            }
+
+            .shape {
+                height: 90px;
+                margin-bottom: 32px;
+
+                svg {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+
+            &-title {
+                font-size: var(--typography-text-large-font-size);
+                font-weight: 500;
+                margin-bottom: 12px;
+                margin-top: auto;
+            }
+
+            &-description {
+                --text-color: var(--color-secondary);
+            }
+        }
+    }
+}

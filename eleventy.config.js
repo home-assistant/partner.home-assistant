@@ -13,6 +13,7 @@ export default async function (eleventyConfig) {
 			"src/img": "img",
 			"src/js": "js",
 			"src/svg": "svg",
+			"src/video": "video",
 		});
 
 	eleventyConfig.addGlobalData("CACHE_KEY", btoa("" + new Date().valueOf()).replaceAll("=", ""));
@@ -53,16 +54,6 @@ export default async function (eleventyConfig) {
 		if (!SHAPES[shape.toUpperCase()]) return "";
 
 		return `<div class="shape shape-${shape.toLowerCase()}">${SHAPES[shape.toUpperCase()]}</div>`;
-	});
-
-	eleventyConfig.addShortcode("lazyImage", function (src, alt, width, height, placeholder) {
-		if (!src) return "";
-		if (!placeholder) placeholder = src;
-		if (!alt) alt = "";
-		if (!width) width = 0;
-		if (!height) height = 0;
-
-		return `<div class="lazy-image" style="--placeholder: url('${placeholder}')" ><img data-src="${src}" alt="${alt}" width="${width}" height="${height}"></div>`;
 	});
 };
 
