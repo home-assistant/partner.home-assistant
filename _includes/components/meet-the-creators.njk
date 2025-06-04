@@ -11,12 +11,25 @@
         />
         <div class="creator-card-content">
           <div class="creator-card-title">{{ member.name }}</div>
-          <div class="creator-card-description">
-            Smart home tips, reviews & DIY guides anyone can follow.
+          <div class="creator-card-links">
+            <span>{% svg "icon_youtube" %}</span>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
+  <script>
+    // randomise the order of the creators using `order`
+    const creatorCards = document.querySelector(
+      "#meet-the-creators .creator-cards"
+    );
+    console.log(creatorCards);
+    const creatorCardElements = Array.from(creatorCards.children);
+    creatorCardElements.sort(() => Math.random() - 0.5);
+    creatorCards.innerHTML = "";
+    creatorCardElements.forEach((el) => {
+      creatorCards.appendChild(el);
+    });
+  </script>
 </section>

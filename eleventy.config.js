@@ -2,7 +2,7 @@ import { InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginFilters from "./_config/filters.js";
-import { SHAPES } from "./_config/shapes.js";
+import { SVG } from "./_config/svg.js";
 import placeholder from "./_config/placeholder.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
@@ -52,11 +52,11 @@ export default async function (eleventyConfig) {
 		return JSON.stringify(value);
 	});
 
-	eleventyConfig.addShortcode("shape", function (shape) {
-		if (!shape) return "";
-		if (!SHAPES[shape.toUpperCase()]) return "";
+	eleventyConfig.addShortcode("svg", function (svg) {
+		if (!svg) return "";
+		if (!SVG[svg.toUpperCase()]) return "";
 
-		return `<div class="shape shape-${shape.toLowerCase()}">${SHAPES[shape.toUpperCase()]}</div>`;
+		return `<div class="svg svg-${svg.toLowerCase()}">${SVG[svg.toUpperCase()]}</div>`;
 	});
 };
 

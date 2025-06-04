@@ -3,36 +3,45 @@
 section#meet-the-creators {
 
     .creator-cards {
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
 
         .creator-card {
             display: flex;
-            padding: 10px;
+            padding: 10px 25px 10px 10px;
             border-radius: 15rem;
             gap: 20px;
             background-color: white;
 
             img {
                 border-radius: 50%;
-                height: 200px;
-                width: 200px;
+                height: 70px;
+                width: 70px;
             }
 
             .creator-card-content {
                 display: flex;
+                gap: 4px;
+                justify-content: center;
                 flex-direction: column;
-                padding: 20px 40px 20px 0;
             }
 
             .creator-card-title {
                 font-size: 20px;
                 font-weight: 600;
-                margin-bottom: 8px;
             }
 
             .creator-card-description {}
+
+            .creator-card-links {
+                display: flex;
+
+                .svg {
+                    width: 24px;
+                }
+            }
 
         }
     }

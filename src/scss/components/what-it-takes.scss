@@ -9,7 +9,7 @@ section#what-it-takes {
         text-align: center;
         margin-bottom: var(--section-spacing-y);
 
-        .shape {
+        .svg {
             --width: 140px;
             width: var(--width);
             position: absolute;
@@ -92,7 +92,7 @@ section#what-it-takes {
                     object-fit: cover;
                 }
 
-                .shape {
+                .svg {
                     bottom: 0;
                     display: none;
                     left: 0;

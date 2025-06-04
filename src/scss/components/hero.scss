@@ -41,7 +41,7 @@ section#hero {
             flex-direction: row;
         }
 
-        .shape {
+        .svg {
             --width: 140px;
             color: var(--color-light-primary);
             position: absolute;
@@ -160,7 +160,7 @@ section#hero {
         }
 
 
-        .shape-two {
+        .svg-shape_two {
             position: absolute;
             z-index: 1;
             width: 157px;
