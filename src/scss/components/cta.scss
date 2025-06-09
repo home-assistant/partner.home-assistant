@@ -1,0 +1,51 @@
+@use "../mixins";
+
+section#cta {
+    margin-top: var(--section-spacing-y);
+    text-align: center;
+
+    .container {
+        position: relative;
+        padding-bottom: var(--section-spacing-y);
+        padding-top: var(--section-spacing-y);
+    }
+
+    h2 {
+        font-weight: 400;
+    }
+
+    p {
+        margin: calc(var(--section-spacing-y)/2) auto 0 auto;
+        max-width: 900px;
+    }
+
+    a {
+        margin-top: 36px;
+    }
+
+    .svg {
+        display: none;
+        position: absolute;
+        height: 210px;
+
+        @include mixins.bp(desktop) {
+            display: block;
+        }
+
+        &.svg-shape_four {
+            right: 0;
+            top: 0;
+        }
+
+        &.svg-shape_eight {
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+body,
+html {
+    padding: 0;
+    margin: 0
+}
