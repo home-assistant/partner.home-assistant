@@ -65,3 +65,33 @@ if (copyTargets) {
         });
     });
 }
+
+const faqItems = document.querySelectorAll('.accordion-item');
+
+faqItems.forEach(faqItem => {
+    let header = faqItem.querySelector('.accordion-item-heading');
+    header.addEventListener('click', function () {
+        faqItem.classList.toggle('active');
+    });
+});
+
+//  if url contains id of faq item, open it
+faqItems.forEach(faqItem => {
+
+
+    if (window.location.hash === '#' + faqItem.id) {
+        faqItem.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+            faqItem.classList.add('active');
+        }, 1000);
+    }
+
+    document.querySelectorAll('a[href="#' + faqItem.id + '"]').forEach(link => {
+        link.addEventListener('click', function () {
+            faqItem.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                faqItem.classList.add('active');
+            }, 1000);
+        });
+    });
+});
