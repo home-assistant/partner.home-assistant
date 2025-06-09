@@ -3,12 +3,19 @@
 section#meet-the-creators {
 
     .scrolly-text {
-        span {
-            transform: translateX(calc(0% + (-40% * (var(--dsap-scroll-delta) / var(--dsap-max-scroll-delta)))));
-            transition: transform 0.1s ease-out;
+
+        h2 {
+            font-size: clamp(1.5rem, 17vw, 450px);
+            transform: translateX(calc(0% + (-60% * (var(--dsap-scroll-delta) / var(--dsap-max-scroll-delta)))));
+            transition: transform 0s ease-out;
+            white-space: nowrap;
 
             &:after {
                 content: " Meet the Creators Meet the Creators";
+            }
+
+            @include mixins.bp(md) {
+                transform: translateX(calc(0% + (-35% * (var(--dsap-scroll-delta) / var(--dsap-max-scroll-delta)))));
             }
         }
     }
