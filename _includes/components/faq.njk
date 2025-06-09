@@ -1,0 +1,33 @@
+<section id="faq">
+  <div class="container">
+    <div class="wrapper">
+      <div class="accordion">
+        <div class="accordion-items">
+          {% for item in faq %}
+          <div class="accordion-item">
+            <div class="accordion-item-heading">
+              <div class="accordion-item-heading-title">
+                {{ item.heading }}
+              </div>
+              <div class="accordion-item-heading-icon">
+                <div class="button-more">
+                  <div class="plus"></div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item-content-animation-wrapper">
+              <div class="accordion-item-content-animation">
+                <div class="accordion-item-content-transform-wrapper">
+                  <div class="accordion-item-content">
+                    {{ item.content }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
