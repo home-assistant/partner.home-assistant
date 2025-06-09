@@ -15,7 +15,7 @@ section#what-is {
             padding-bottom: 40px;
 
             p {
-                --text-color: var(--color-secondary);
+                --text-color: var(--color-muted);
             }
 
             @include mixins.bp(desktop) {
@@ -83,7 +83,7 @@ section#what-is {
             position: absolute;
             right: 0;
             width: 150px;
-            bottom: 0;
+            bottom: -60px;
 
             @include mixins.bp(desktop) {
                 width: 210px;
