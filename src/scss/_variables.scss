@@ -7,10 +7,13 @@
     // Colors
     --color-primary: #002332;
     --color-primary-light: #1E3764;
-    --color-secondary: #4F606E;
+    --color-secondary: #00AEF8;
+    --color-secondary-light: #00AEF8;
+    --color-tertiary: #16F3BE;
     --color-tertiary: #16F3BE;
 
-    --color-light-primary: #00AEF8;
+    --color-white: #FFFFFF;
+    --color-muted: #4F606E;
 
     // Body
     --body-background-color-rgb: 245, 246, 250;
@@ -60,6 +63,17 @@
 
     // Spacing
     --section-spacing-y: 60px;
+
+    // Accordion
+    --accordion-item-padding: 0;
+
+    --accordion-item-heading-font-size: 16px;
+    --accordion-item-heading-padding: 20px 0;
+    --accordion-item-heading-spacing: 40px;
+
+    --accordion-item-content-font-size: 12px;
+    --accordion-item-content-padding: 0 0 20px 0;
+
 }
 
 @include mixins.bp(large-mobile) {
@@ -82,6 +96,9 @@
         --layout-columns-gap: 16px 48px;
 
         --section-spacing-y: 100px;
+
+        --accordion-item-heading-font-size: 20px;
+        --accordion-item-content-font-size: 14px;
     }
 }
 
@@ -98,6 +115,11 @@
         --layout-container-padding: 40px;
         --layout-columns-gap: 16px 64px;
 
-        --section-spacing-y: 130px;
+        --section-spacing-y: 120px;
+
+        --accordion-item-padding: 20px 0;
+        --accordion-item-heading-font-size: 24px;
+        --accordion-item-content-font-size: 16px;
+        --accordion-item-content-padding: 20px 0;
     }
 }
