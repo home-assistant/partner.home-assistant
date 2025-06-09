@@ -2,6 +2,17 @@
 
 section#meet-the-creators {
 
+    .scrolly-text {
+        span {
+            transform: translateX(calc(0% + (-40% * (var(--dsap-scroll-delta) / var(--dsap-max-scroll-delta)))));
+            transition: transform 0.1s ease-out;
+
+            &:after {
+                content: " Meet the Creators Meet the Creators";
+            }
+        }
+    }
+
     .creator-cards {
         display: flex;
         flex-wrap: wrap;
