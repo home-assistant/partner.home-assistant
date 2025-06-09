@@ -3,7 +3,6 @@ import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginFilters from "./_config/filters.js";
 import { SVG } from "./_config/svg.js";
-import placeholder from "./_config/placeholder.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
@@ -42,7 +41,6 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addPlugin(HtmlBasePlugin);
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 	eleventyConfig.addPlugin(syntaxHighlight);
-	eleventyConfig.addPlugin(placeholder);
 
 	eleventyConfig.addFilter("sitemapExclude", function (collection) {
 		return collection.filter(item => item.data.sitemap !== false);
